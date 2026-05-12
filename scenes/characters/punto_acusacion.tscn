@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d0qlvvixi5j31"]
+
+[ext_resource type="Script" uid="uid://b4lioj5xbia1o" path="res://scripts/punto_acusacion.gd" id="1_2o376"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ym2"]
+size = Vector2(40, 40)
+
+[node name="PuntoAcusacion" type="Area2D" unique_id=1775809685]
+visible = false
+script = ExtResource("1_2o376")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=779597589]
+shape = SubResource("RectangleShape2D_n7ym2")
+
+[node name="Label" type="Label" parent="." unique_id=784440552]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 33.0
+offset_bottom = -7.0
+text = "Acusar"

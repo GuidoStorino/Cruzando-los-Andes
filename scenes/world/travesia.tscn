@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://yddd5t665eab"]
+
+[ext_resource type="Script" uid="uid://bq1fjsd77syj" path="res://scripts/travesia.gd" id="1_gesay"]
+[ext_resource type="PackedScene" uid="uid://bfjoncrmfbtwf" path="res://scenes/characters/player.tscn" id="2_gjfn6"]
+[ext_resource type="PackedScene" uid="uid://b8emn52nfhlef" path="res://scenes/ui/dialogo_ui.tscn" id="3_var5j"]
+[ext_resource type="PackedScene" uid="uid://77d1qy466tgu" path="res://scenes/characters/npc.tscn" id="4_mjgij"]
+
+[node name="Travesia" type="Node2D" unique_id=1276399229]
+script = ExtResource("1_gesay")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1293377521]
+offset_right = 480.0
+offset_bottom = 432.0
+color = Color(0.17254902, 0.24313726, 0.3137255, 1)
+
+[node name="Player" parent="." unique_id=1631804775 instance=ExtResource("2_gjfn6")]
+
+[node name="DialogoUI" parent="." unique_id=1689896403 instance=ExtResource("3_var5j")]
+
+[node name="GrupoPeligros" type="Node2D" parent="." unique_id=711205318]
+
+[node name="Patrulla1" parent="GrupoPeligros" unique_id=823760919 instance=ExtResource("4_mjgij")]
+position = Vector2(200, 200)
+nombre = "Patrulla Realista"
+id_dialogo = "intro_sanmartin"
+es_espia = true
+
+[node name="Patrulla2" parent="GrupoPeligros" unique_id=1712211916 instance=ExtResource("4_mjgij")]
+position = Vector2(380, 300)
+nombre = "Patrulla Realista"
+id_dialogo = "intro_sanmartin"
+es_espia = true

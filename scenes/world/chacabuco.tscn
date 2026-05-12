@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bk0wlm0xhmmx8"]
+
+[ext_resource type="Script" uid="uid://dcfu8ihmk2nph" path="res://scripts/chacabuco.gd" id="1_lw36j"]
+[ext_resource type="PackedScene" uid="uid://bfjoncrmfbtwf" path="res://scenes/characters/player.tscn" id="2_5q7x5"]
+[ext_resource type="PackedScene" uid="uid://b8emn52nfhlef" path="res://scenes/ui/dialogo_ui.tscn" id="3_foide"]
+[ext_resource type="PackedScene" uid="uid://77d1qy466tgu" path="res://scenes/characters/npc.tscn" id="4_800ma"]
+
+[node name="Chacabuco" type="Node2D" unique_id=246654932]
+script = ExtResource("1_lw36j")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1643517680]
+offset_right = 480.0
+offset_bottom = 432.0
+color = Color(0.2901961, 0.32156864, 0.2509804, 1)
+
+[node name="Player" parent="." unique_id=1631804775 instance=ExtResource("2_5q7x5")]
+
+[node name="DialogoUI" parent="." unique_id=1689896403 instance=ExtResource("3_foide")]
+
+[node name="Enemigos" type="Node2D" parent="." unique_id=1442917892]
+
+[node name="Destacamento" parent="Enemigos" unique_id=823760919 instance=ExtResource("4_800ma")]
+position = Vector2(300, 150)
+nombre = "Destacamento Realista"
+id_dialogo = "\"ohiggins_encuentro\""
+es_espia = true
+
+[node name="OHiggins" parent="Enemigos" unique_id=1644743608 instance=ExtResource("4_800ma")]
+modulate = Color(0.83137256, 0.627451, 0.09019608, 1)
+position = Vector2(150, 200)
+nombre = "O' Higgins"
+id_dialogo = "\"ohiggins_encuentro\""

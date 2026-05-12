@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://77d1qy466tgu"]
+
+[ext_resource type="Script" uid="uid://bppj1b8cj5xry" path="res://scripts/npc.gd" id="1_ceaqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84hc2"]
+size = Vector2(16, 31)
+
+[node name="NPC" type="StaticBody2D" unique_id=823760919]
+script = ExtResource("1_ceaqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000856994]
+shape = SubResource("RectangleShape2D_84hc2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=359745237]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
+color = Color(0.1764706, 0.3529412, 0.15294118, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1104007084]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -7.0
+text = "NPC"
+horizontal_alignment = 1

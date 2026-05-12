@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cw4wykemyva28"]
+
+[ext_resource type="Script" uid="uid://b74xhiutpw60a" path="res://scripts/creditos.gd" id="1_pgrl5"]
+
+[node name="Creditos" type="CanvasLayer" unique_id=1674523593]
+script = ExtResource("1_pgrl5")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=383336796]
+offset_right = 480.0
+offset_bottom = 432.0
+color = Color(0, 0, 0, 1)
+
+[node name="Contenido" type="VBoxContainer" parent="." unique_id=272739755]
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 440.0
+offset_bottom = 372.0
+
+[node name="LabelTitulo" type="Label" parent="Contenido" unique_id=1768547729]
+layout_mode = 2
+text = "Cruzando los Andes"
+horizontal_alignment = 1
+
+[node name="LabelTextoHistorico" type="RichTextLabel" parent="Contenido" unique_id=1263407067]
+layout_mode = 2
+bbcode_enabled = true
+text = "El 12 de febrero de 1817, el Ejército de los Andes derrotó a las fuerzas realistas en la Batalla de Chacabuco.
+
+San Martín rechazó el gobierno de Chile, cedido por O'Higgins.
+
+\"Gloria al bravo que muere en la lid.\""
+
+[node name="LabelFin" type="Label" parent="Contenido" unique_id=645029479]
+layout_mode = 2
+text = "FIN"
+horizontal_alignment = 1

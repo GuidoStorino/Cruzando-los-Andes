@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cihyfbdbrxhcw"]
+
+[ext_resource type="Script" uid="uid://cpjqv0mxaysa0" path="res://scripts/distribucion_recursos.gd" id="1_rjak0"]
+
+[node name="DistribucionRecursos" type="CanvasLayer" unique_id=1626836369]
+script = ExtResource("1_rjak0")
+
+[node name="Panel" type="Panel" parent="." unique_id=2101043617]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 440.0
+offset_bottom = 390.0
+
+[node name="LabelTitulo" type="Label" parent="Panel" unique_id=915273100]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+text = "Preparación del Ejército"
+horizontal_alignment = 1
+
+[node name="LabelDescripcion" type="Label" parent="Panel" unique_id=1131258567]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 390.0
+offset_bottom = 80.0
+text = "El pueblo de Mendoza donó todo lo que tenía.\\nDistribuí los recursos sabiamente."
+
+[node name="LabelPuntosRestantes" type="Label" parent="Panel" unique_id=679803120]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 50.0
+offset_bottom = 113.0
+text = "Puntos restantes: 300"
+
+[node name="ContenedorComida" type="HBoxContainer" parent="Panel" unique_id=1180419188]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 130.0
+offset_right = 390.0
+offset_bottom = 170.0
+
+[node name="LabelComida" type="Label" parent="Panel/ContenedorComida" unique_id=1305592407]
+layout_mode = 2
+text = "Comida:"
+
+[node name="BotonComidaMenos" type="Button" parent="Panel/ContenedorComida" unique_id=1868874782]
+layout_mode = 2
+text = " -"
+
+[node name="LabelComidaValor" type="Label" parent="Panel/ContenedorComida" unique_id=738713977]
+layout_mode = 2
+text = "0"
+
+[node name="BotonComidaMas" type="Button" parent="Panel/ContenedorComida" unique_id=32765659]
+layout_mode = 2
+text = " +"
+
+[node name="ContenedorMunicion" type="HBoxContainer" parent="Panel" unique_id=984712782]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 390.0
+offset_bottom = 230.0
+
+[node name="LabelMunicion" type="Label" parent="Panel/ContenedorMunicion" unique_id=248142103]
+layout_mode = 2
+text = "Munición:"
+
+[node name="BotonMunicionMenos" type="Button" parent="Panel/ContenedorMunicion" unique_id=278176341]
+layout_mode = 2
+text = " -"
+
+[node name="LabelMunicionValor" type="Label" parent="Panel/ContenedorMunicion" unique_id=1423085079]
+layout_mode = 2
+text = "0"
+
+[node name="BotonMunicionMas" type="Button" parent="Panel/ContenedorMunicion" unique_id=829722517]
+layout_mode = 2
+text = " +"
+
+[node name="ContenedorSoldados" type="HBoxContainer" parent="Panel" unique_id=1663197992]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 250.0
+offset_right = 390.0
+offset_bottom = 290.0
+
+[node name="LabelSoldados" type="Label" parent="Panel/ContenedorSoldados" unique_id=1619691301]
+layout_mode = 2
+text = "Soldados:"
+
+[node name="BotonSoldadoMenos" type="Button" parent="Panel/ContenedorSoldados" unique_id=1822784776]
+layout_mode = 2
+text = "-"
+
+[node name="LabelSoldadosValor" type="Label" parent="Panel/ContenedorSoldados" unique_id=1376090959]
+layout_mode = 2
+text = "0"
+
+[node name="BotonSoldadosMas" type="Button" parent="Panel/ContenedorSoldados" unique_id=1181874869]
+layout_mode = 2
+text = "+"
+
+[node name="BotonConfirmar" type="Button" parent="Panel" unique_id=300227588]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 305.0
+offset_right = 250.0
+offset_bottom = 340.0
+text = "¡Partir!"

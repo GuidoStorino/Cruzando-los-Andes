@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://ckqg1bo2ofgev"]
+
+[ext_resource type="Script" uid="uid://bjbkfawqblme7" path="res://scripts/mendoza.gd" id="1_xum0e"]
+[ext_resource type="PackedScene" uid="uid://bfjoncrmfbtwf" path="res://scenes/characters/player.tscn" id="2_5u5j3"]
+[ext_resource type="PackedScene" uid="uid://b8emn52nfhlef" path="res://scenes/ui/dialogo_ui.tscn" id="3_5u5j3"]
+[ext_resource type="PackedScene" uid="uid://77d1qy466tgu" path="res://scenes/characters/npc.tscn" id="4_5u5j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u5j3"]
+size = Vector2(16, 32)
+
+[node name="Mendoza" type="Node2D" unique_id=2032998761]
+script = ExtResource("1_xum0e")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1592248684]
+
+[node name="Player" parent="." unique_id=1631804775 instance=ExtResource("2_5u5j3")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player" unique_id=1098605698]
+shape = SubResource("RectangleShape2D_5u5j3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1656973749]
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="DialogoUI" parent="." unique_id=1689896403 instance=ExtResource("3_5u5j3")]
+visible = false
+
+[node name="NPC Cabral" parent="." unique_id=823760919 instance=ExtResource("4_5u5j3")]
+position = Vector2(80, 200)
+nombre = "Cabral"
+id_dialogo = "cabral_reclutamiento"
+es_reclutable = true
+repetible = true
+
+[node name="NPC Ramos" parent="." unique_id=88703173 instance=ExtResource("4_5u5j3")]
+position = Vector2(180, 200)
+nombre = "Ramos"
+id_dialogo = "soldado_inocente_1"
+da_pista = true
+repetible = true
+
+[node name="Pérez" parent="." unique_id=1672835105 instance=ExtResource("4_5u5j3")]
+position = Vector2(260, 200)
+nombre = "Pérez"
+id_dialogo = "soldado_inocente_2"
+da_pista = true
+repetible = true
+
+[node name="López" parent="." unique_id=252098404 instance=ExtResource("4_5u5j3")]
+position = Vector2(340, 200)
+nombre = "López"
+id_dialogo = "soldado_inocente_3"
+da_pista = true
+repetible = true
+
+[node name="Quiroga" parent="." unique_id=1144147492 instance=ExtResource("4_5u5j3")]
+position = Vector2(420, 200)
+nombre = "Quiroga"
+id_dialogo = "soldado_espia"
+repetible = true
+
+[node name="MenuAcusacion" type="CanvasLayer" parent="." unique_id=1136424495]
+visible = false
+
+[node name="Panel" type="Panel" parent="MenuAcusacion" unique_id=255493950]
+offset_left = 90.0
+offset_top = 150.0
+offset_right = 390.0
+offset_bottom = 390.0
+
+[node name="LabelPregunta" type="Label" parent="MenuAcusacion/Panel" unique_id=1113880576]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0
+text = "¿Quién es el espía?"
+
+[node name="BotonQuiroga" type="Button" parent="MenuAcusacion/Panel" unique_id=1122530002]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 290.0
+offset_bottom = 80.0
+text = "Quiroga"
+
+[node name="BotonRamos" type="Button" parent="MenuAcusacion/Panel" unique_id=2074115642]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 290.0
+offset_bottom = 120.0
+text = "Ramos"
+
+[node name="BotonLopez" type="Button" parent="MenuAcusacion/Panel" unique_id=26071013]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 120.0
+offset_right = 290.0
+offset_bottom = 150.0
+text = "López"
+
+[node name="BotonPerez" type="Button" parent="MenuAcusacion/Panel" unique_id=1842807241]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 150.0
+offset_right = 290.0
+offset_bottom = 180.0
+text = "Pérez"
+
+[node name="BotonCabral" type="Button" parent="MenuAcusacion/Panel" unique_id=260717120]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 150.0
+offset_right = 290.0
+offset_bottom = 180.0
+text = "Cabral"
+
+[node name="BotonSalir" type="Button" parent="MenuAcusacion/Panel" unique_id=2065018755]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 290.0
+offset_bottom = 221.0
+text = "Volver"
+
+[node name="Cabildo" parent="." unique_id=457101145 instance=ExtResource("4_5u5j3")]
+position = Vector2(200, 300)
+nombre = "Cabildo"
+id_dialogo = "cabildo_neutral"
+da_sable_corvo = true
+es_cabildo = true
+repetible = true

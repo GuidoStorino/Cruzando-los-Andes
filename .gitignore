@@ -1,0 +1,13 @@
+# Godot 4 - archivos generados automáticamente
+.godot/
+
+# Configuración de exportación (contiene rutas locales)
+export_presets.cfg
+
+# Binarios exportados
+*.apk
+*.aab
+*.exe
+*.dmg
+*.zip
+*.x86_64

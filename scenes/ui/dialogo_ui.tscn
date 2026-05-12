@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8emn52nfhlef"]
+
+[ext_resource type="Script" uid="uid://bs85ldksdnycs" path="res://scripts/dialogo_ui.gd" id="1_ye48u"]
+
+[node name="DialogoUI" type="CanvasLayer" unique_id=1689896403]
+script = ExtResource("1_ye48u")
+
+[node name="Panel" type="Panel" parent="." unique_id=1848046659]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, -80)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=551667479]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 470.0
+offset_bottom = 60.0
+pivot_offset = Vector2(10, 8)
+pivot_offset_ratio = Vector2(-10, -20)
+bbcode_enabled = true
+
+[node name="Label" type="Label" parent="Panel" unique_id=1735326483]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 58.0
+offset_right = 553.0
+offset_bottom = 81.0
+text = "Presioná Z para continuar..."
