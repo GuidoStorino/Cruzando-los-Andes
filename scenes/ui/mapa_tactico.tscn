@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://680umtflk8dq"]
+
+[ext_resource type="Script" uid="uid://i68t066kaqg" path="res://scripts/mapa_tactico.gd" id="1_3kv5q"]
+
+[node name="MapaTactico" type="Node2D" unique_id=774003859]
+script = ExtResource("1_3kv5q")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1828126310]
+offset_right = 480.0
+offset_bottom = 432.0
+color = Color(0.101960786, 0.16470589, 0.101960786, 1)
+
+[node name="LabelTitulo" type="Label" parent="." unique_id=1770191912]
+offset_left = 140.0
+offset_top = 10.0
+offset_right = 180.0
+offset_bottom = 33.0
+text = "Mapa Táctico - Chacabuco
+"
+
+[node name="LabelOHiggins" type="Label" parent="." unique_id=1375055052]
+offset_left = 10.0
+offset_top = 35.0
+offset_right = 470.0
+offset_bottom = 85.0
+text = "O'Higgins: El enemigo está concentrado al centro. Quizás debamos flanquear por la izquierda con fuerza, y mantener presión al centro."
+autowrap_mode = 2
+
+[node name="LabelInstrucciones" type="Label" parent="." unique_id=1444192338]
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 50.0
+offset_bottom = 113.0
+text = "Z: seleccionar columna | ← →: mover | ↑↓: asignar fuerzas | Enter: confirmar"
+
+[node name="ZonaEnemigo" type="ColorRect" parent="." unique_id=2143266402]
+offset_left = 100.0
+offset_top = 115.0
+offset_right = 380.0
+offset_bottom = 145.0
+color = Color(0.54509807, 0, 0, 1)
+
+[node name="LabelEnemigo" type="Label" parent="." unique_id=2042870595]
+offset_left = 190.0
+offset_top = 120.0
+offset_right = 230.0
+offset_bottom = 143.0
+text = "ENEMIGO"
+
+[node name="ZonaIzquierda" type="ColorRect" parent="." unique_id=671629508]
+offset_left = 20.0
+offset_top = 280.0
+offset_right = 140.0
+offset_bottom = 340.0
+color = Color(0.101960786, 0.22745098, 0.101960786, 1)
+
+[node name="ZonaCentro" type="ColorRect" parent="." unique_id=1505378628]
+offset_left = 180.0
+offset_top = 280.0
+offset_right = 300.0
+offset_bottom = 340.0
+color = Color(0.101960786, 0.22745098, 0.101960786, 1)
+
+[node name="ZonaDerecha" type="ColorRect" parent="." unique_id=1274869159]
+offset_left = 360.0
+offset_top = 285.0
+offset_right = 400.0
+offset_bottom = 325.0
+color = Color(0.101960786, 0.22745098, 0.101960786, 1)
+
+[node name="LabelIzquierda" type="Label" parent="." unique_id=1671769855]
+offset_left = 40.0
+offset_top = 285.0
+offset_right = 80.0
+offset_bottom = 308.0
+text = "IZQUIERDA"
+
+[node name="LabelCentro" type="Label" parent="." unique_id=1147864230]
+offset_left = 205.0
+offset_top = 285.0
+offset_right = 269.0
+offset_bottom = 308.0
+text = "CENTRO"
+
+[node name="LabelDerecha" type="Label" parent="." unique_id=1286881952]
+offset_left = 360.0
+offset_top = 285.0
+offset_right = 400.0
+offset_bottom = 308.0
+text = "DERECHA"
+
+[node name="LabelValorIzq" type="Label" parent="." unique_id=249772039]
+offset_left = 60.0
+offset_top = 310.0
+offset_right = 100.0
+offset_bottom = 333.0
+text = "0"
+
+[node name="LabelValorCentro" type="Label" parent="." unique_id=2127681730]
+offset_left = 230.0
+offset_top = 310.0
+offset_right = 270.0
+offset_bottom = 333.0
+text = "0"
+
+[node name="LabelValorDer" type="Label" parent="." unique_id=1588469593]
+offset_left = 390.0
+offset_top = 310.0
+offset_right = 430.0
+offset_bottom = 333.0
+text = "0"
+
+[node name="Columna1" type="ColorRect" parent="." unique_id=2078949695]
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 90.0
+offset_bottom = 250.0
+color = Color(0.26666668, 0.26666668, 1, 1)
+
+[node name="Columna2" type="ColorRect" parent="." unique_id=1461239630]
+offset_left = 220.0
+offset_top = 200.0
+offset_right = 250.0
+offset_bottom = 250.0
+color = Color(0.26666668, 0.26666668, 1, 1)
+
+[node name="Columna3" type="ColorRect" parent="." unique_id=747048367]
+offset_left = 380.0
+offset_top = 200.0
+offset_right = 410.0
+offset_bottom = 250.0
+color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+
+[node name="LabelColumnaSeleccionada" type="Label" parent="." unique_id=170990433]
+offset_left = 10.0
+offset_top = 350.0
+offset_right = 50.0
+offset_bottom = 373.0
+text = "Columna seleccionada: 1"
+
+[node name="LabelPuntosRestantes" type="Label" parent="." unique_id=1509493422]
+offset_left = 10.0
+offset_top = 365.0
+offset_right = 194.0
+offset_bottom = 388.0
+text = "Fuerzas sin asignar: 100"
+
+[node name="LabelEfectos" type="Label" parent="." unique_id=1457987893]
+offset_left = 10.0
+offset_top = 380.0
+offset_right = 350.0
+offset_bottom = 420.0
+autowrap_mode = 2
+
+[node name="BotonConfirmar" type="Button" parent="." unique_id=1223751439]
+offset_left = 370.0
+offset_top = 390.0
+offset_right = 470.0
+offset_bottom = 425.0
+disabled = true
+text = "¡Atacar!"

@@ -37,7 +37,7 @@ func verificar_fin_acto1() -> void:
 		dialogo_ui.dialogo_terminado.connect(_on_intro_acto2_terminada, CONNECT_ONE_SHOT)
 
 func _on_intro_acto2_terminada() -> void:
-	get_tree().change_scene_to_file("res://scenes/ui/distribucion_recursos.tscn")
+	get_tree().change_scene_to_file("res://scenes/world/travesia2.tscn")
 
 func mostrar_menu_acusacion() -> void:
 	menu_acusacion.visible = true

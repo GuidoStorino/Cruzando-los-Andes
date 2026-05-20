@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://blh1pbq3ov2rw"]
+
+[ext_resource type="Script" uid="uid://drvulcgfy4lo1" path="res://scripts/mula.gd" id="1_iggcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl2pl"]
+size = Vector2(24, 16)
+
+[node name="Mula" type="StaticBody2D" unique_id=970809291]
+script = ExtResource("1_iggcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071000367]
+position = Vector2(-12, -12)
+shape = SubResource("RectangleShape2D_jl2pl")
+debug_color = Color(0.54509807, 0.4117647, 0.078431375, 0)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1985101390]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.54509807, 0.4117647, 0.078431375, 1)
+
+[node name="Label" type="Label" parent="." unique_id=2062676663]
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = -5.0
+text = "Mula"

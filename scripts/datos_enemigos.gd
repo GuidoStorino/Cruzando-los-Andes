@@ -35,39 +35,39 @@ var enemigos = {
 			{"nombre": "Trinchera", "danio": 0.4, "efecto": ""},
 		]
 	},
-	"soldados_chacabuco": {
-		"nombre": "Soldados Realistas",
-		"hp": 80,
-		"ataque": 16,
-		"defensa": 12,
-		"movimientos": [
-			{"nombre": "Descarga Cerrada", "danio": 1.1, "efecto": ""},
-			{"nombre": "Avance Coordinado", "danio": 1.0, "efecto": "desmoralizado"},
-		]
-	},
-	"capitan_chacabuco": {
-		"nombre": "Capitán Realista",
-		"hp": 100,
-		"ataque": 20,
-		"defensa": 15,
-		"movimientos": [
-			{"nombre": "Sablazoo", "danio": 1.3, "efecto": "herido"},
-			{"nombre": "Orden de Ataque", "danio": 1.1, "efecto": ""},
-			{"nombre": "Posición Defensiva", "danio": 0.3, "efecto": ""},
-		]
-	},
-	"marco_del_pont": {
-		"nombre": "Marco del Pont",
-		"hp": 130,
-		"ataque": 24,
-		"defensa": 18,
-		"movimientos": [
-			{"nombre": "Autoridad Real", "danio": 1.4, "efecto": "desmoralizado"},
-			{"nombre": "Guardia Personal", "danio": 1.2, "efecto": ""},
-			{"nombre": "Contraataque", "danio": 1.6, "efecto": "herido"},
-			{"nombre": "Resistencia Final", "danio": 0.8, "efecto": ""},
-		]
-	},
+"soldados_chacabuco": {
+	"nombre": "Soldados Realistas",
+	"hp": 80,
+	"ataque": 12,    # antes 16
+	"defensa": 10,
+	"movimientos": [
+		{"nombre": "Descarga Cerrada", "danio": 0.9, "efecto": ""},
+		{"nombre": "Avance Coordinado", "danio": 0.8, "efecto": "desmoralizado"},
+	]
+},
+"capitan_chacabuco": {
+	"nombre": "Capitán Realista",
+	"hp": 100,
+	"ataque": 16,    # antes 20
+	"defensa": 13,
+	"movimientos": [
+		{"nombre": "Sablazoo", "danio": 1.1, "efecto": "herido"},
+		{"nombre": "Orden de Ataque", "danio": 0.9, "efecto": ""},
+		{"nombre": "Posición Defensiva", "danio": 0.3, "efecto": ""},
+	]
+},
+"marco_del_pont": {
+	"nombre": "Marco del Pont",
+	"hp": 130,
+	"ataque": 20,    # antes 24
+	"defensa": 15,
+	"movimientos": [
+		{"nombre": "Autoridad Real", "danio": 1.2, "efecto": "desmoralizado"},
+		{"nombre": "Guardia Personal", "danio": 1.0, "efecto": ""},
+		{"nombre": "Contraataque", "danio": 1.3, "efecto": "herido"},
+		{"nombre": "Resistencia Final", "danio": 0.7, "efecto": ""},
+	]
+},
 }
 
 func get_enemigo(id: String) -> Dictionary:
@@ -77,6 +77,6 @@ func get_enemigo(id: String) -> Dictionary:
 
 func calcular_danio(ataque: int, defensa: int, multiplicador: float) -> int:
 	var danio_base = ataque * multiplicador
-	var reduccion = defensa * 0.4
+	var reduccion = defensa * 0.2
 	var danio_final = int(max(danio_base - reduccion, 3))
 	return danio_final

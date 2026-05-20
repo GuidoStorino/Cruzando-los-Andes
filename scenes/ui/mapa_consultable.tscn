@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://4ub4usf7yqaq"]
+
+[ext_resource type="Script" uid="uid://dx6mg7djisrb8" path="res://scripts/mapa_consultable.gd" id="1_a1ebn"]
+
+[node name="MapaConsultable" type="CanvasLayer" unique_id=1486860539]
+script = ExtResource("1_a1ebn")
+
+[node name="Panel" type="Panel" parent="." unique_id=740380885]
+visible = false
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 440.0
+offset_bottom = 410.0
+
+[node name="LabelTitulo" type="Label" parent="Panel" unique_id=786880605]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 31.0
+text = "Mapa - Los Andes"
+
+[node name="MapaContenedor" type="Control" parent="Panel" unique_id=1704879531]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 390.0
+offset_bottom = 350.0
+
+[node name="Zona Sur" type="ColorRect" parent="Panel/MapaContenedor" unique_id=1846821513]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 240.0
+offset_right = 240.0
+offset_bottom = 300.0
+color = Color(0.83137256, 0.77254903, 0.6627451, 1)
+
+[node name="Zona Oeste" type="ColorRect" parent="Panel/MapaContenedor" unique_id=1321913746]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 140.0
+offset_right = 120.0
+offset_bottom = 220.0
+color = Color(0.1764706, 0.3529412, 0.15294118, 1)
+
+[node name="ZonaEste" type="ColorRect" parent="Panel/MapaContenedor" unique_id=1589840865]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 140.0
+offset_right = 360.0
+offset_bottom = 220.0
+color = Color(0.41960785, 0.25882354, 0.14901961, 1)
+
+[node name="ZonaNorte" type="ColorRect" parent="Panel/MapaContenedor" unique_id=1292028233]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 120.0
+color = Color(0.78431374, 0.83137256, 0.83137256, 1)
+
+[node name="Campamento" type="ColorRect" parent="Panel/MapaContenedor" unique_id=739389139]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 140.0
+offset_right = 240.0
+offset_bottom = 220.0
+color = Color(0.83137256, 0.627451, 0.09019608, 1)
+
+[node name="LabelSur" type="Label" parent="Panel/MapaContenedor" unique_id=1240503685]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 265.0
+offset_right = 190.0
+offset_bottom = 288.0
+text = "Entrada"
+
+[node name="LabelOeste" type="Label" parent="Panel/MapaContenedor" unique_id=550815261]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 175.0
+offset_right = 65.0
+offset_bottom = 198.0
+text = "Picheuta"
+
+[node name="LabelEste" type="Label" parent="Panel/MapaContenedor" unique_id=1969345688]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 175.0
+offset_right = 305.0
+offset_bottom = 198.0
+text = "Cuesta"
+
+[node name="LabelNorte" type="Label" parent="Panel/MapaContenedor" unique_id=1408263559]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 60.0
+offset_right = 265.0
+offset_bottom = 83.0
+text = "Paso Los Patos"
+
+[node name="LabelCamp" type="Label" parent="Panel/MapaContenedor" unique_id=1797217858]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 175.0
+offset_right = 190.0
+offset_bottom = 198.0
+text = "Cuartel General"
+
+[node name="PuntoJugador" type="ColorRect" parent="Panel/MapaContenedor" unique_id=2130826987]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0, 0, 1)
+
+[node name="LabelCerrar" type="Label" parent="Panel" unique_id=2120569562]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 360.0
+offset_right = 50.0
+offset_bottom = 383.0
+text = "Presioná M para cerrar"

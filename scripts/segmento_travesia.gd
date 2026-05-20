@@ -58,16 +58,20 @@ func _on_menos() -> void:
 
 func aplicar_recursos(rapida: bool) -> void:
 	var multiplicador_clima = 1
-	if GameManager.clima_actual == "tormenta":
+	if GameManager.clima_actual in ["nevada", "tormenta"]:
 		multiplicador_clima = 2
 
-	# Consumo base por marcha
+	# Consumo de comida
 	var consumo_comida = 20 * multiplicador_clima if GameManager.clima_actual in ["nevada", "tormenta"] else 10
-	var consumo_municion = 15 if rapida else 5
-	var consumo_soldados = 20 * multiplicador_clima if GameManager.clima_actual in ["ventisca", "tormenta"] else 10
-
 	if rapida:
 		consumo_comida = int(consumo_comida * 1.5)
+
+	# Consumo de munición
+	var consumo_municion = 15 if rapida else 5
+
+	# Consumo de soldados
+	var consumo_soldados = 20 if GameManager.clima_actual in ["ventisca", "tormenta"] else 10
+	if rapida:
 		consumo_soldados = int(consumo_soldados * 1.5)
 
 	# Aplicar comida elegida por el jugador
@@ -77,9 +81,9 @@ func aplicar_recursos(rapida: bool) -> void:
 	GameManager.recursos["soldados"] -= consumo_soldados
 
 	# Clampear a 0
-	for key in GameManager.recursos:
-		if key != "puntos_totales":
-			GameManager.recursos[key] = max(GameManager.recursos[key], 0)
+	GameManager.recursos["comida"] = max(GameManager.recursos["comida"], 0)
+	GameManager.recursos["municion"] = max(GameManager.recursos["municion"], 0)
+	GameManager.recursos["soldados"] = max(GameManager.recursos["soldados"], 0)
 
 	# Efecto de comida en HP
 	if comida_a_usar >= 30:
@@ -87,20 +91,35 @@ func aplicar_recursos(rapida: bool) -> void:
 			GameManager.stats_jugador["hp"] + 20,
 			GameManager.stats_jugador["hp_max"]
 		)
-	elif GameManager.recursos["comida"] <= 0:
-		GameManager.stats_jugador["hp"] = max(GameManager.stats_jugador["hp"] - 20, 10)
+	elif GameManager.recursos["comida"] == 0:
+		GameManager.stats_jugador["hp"] = max(GameManager.stats_jugador["hp"] - 25, 10)
+		print("¡Sin comida! San Martín pierde HP.")
 
-	# Efecto de munición en ataque
+	# Efecto de munición en ataque (permanente hasta el acto 3)
 	if GameManager.recursos["municion"] <= 20:
-		GameManager.stats_jugador["ataque"] = 12
+		GameManager.stats_jugador["ataque"] = 10
+		print("Munición escasa. Ataque reducido.")
+	elif GameManager.recursos["municion"] <= 50:
+		GameManager.stats_jugador["ataque"] = 14
 	else:
 		GameManager.stats_jugador["ataque"] = 18
 
 	# Efecto de soldados en defensa
 	if GameManager.recursos["soldados"] <= 20:
-		GameManager.stats_jugador["defensa"] = 6
+		GameManager.stats_jugador["defensa"] = 5
+		print("Pocos soldados. Defensa reducida.")
+	elif GameManager.recursos["soldados"] <= 50:
+		GameManager.stats_jugador["defensa"] = 8
 	else:
 		GameManager.stats_jugador["defensa"] = 12
+
+	print("=== RECURSOS TRAS SEGMENTO ===")
+	print("Comida: ", GameManager.recursos["comida"])
+	print("Munición: ", GameManager.recursos["municion"])
+	print("Soldados: ", GameManager.recursos["soldados"])
+	print("HP: ", GameManager.stats_jugador["hp"])
+	print("Ataque: ", GameManager.stats_jugador["ataque"])
+	print("Defensa: ", GameManager.stats_jugador["defensa"])
 
 func _on_marcha_rapida() -> void:
 	aplicar_recursos(true)

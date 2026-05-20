@@ -8,6 +8,9 @@ extends StaticBody2D
 @export var da_pista: bool = false
 @export var es_cabildo: bool = false
 @export var repetible: bool = false
+@export var es_curandero: bool = false
+@export var reacciona_al_acercamiento: bool = false
+@export var distancia_reaccion: float = 30.0
 
 @onready var label = $Label
 
@@ -21,11 +24,22 @@ func _ready() -> void:
 	dialogo_ui = get_tree().current_scene.find_child("DialogoUI", true, false)
 
 func _process(delta: float) -> void:
+	if reacciona_al_acercamiento and not ya_interactuado:
+		var jugador = get_tree().current_scene.find_child("Player", true, false)
+		if jugador and global_position.distance_to(jugador.global_position) < distancia_reaccion:
+			ya_interactuado = true
+			_iniciar_combate_espia()
+			return
+	
 	if Input.is_action_just_pressed("accion") and not ya_interactuado:
-		print("Z presionado. Distancia al jugador: ", _get_distancia())
+		print("Z presionado en NPC: ", nombre)
+		print("dialogo_ui: ", dialogo_ui)
+		print("id_dialogo: ", id_dialogo)
 		if esta_cerca_del_jugador():
-			print("Cerca del jugador. DialogoUI: ", dialogo_ui)
+			print("Cerca del jugador, iniciando diálogo")
 			interactuar()
+		else:
+			print("Lejos del jugador")
 
 func _get_distancia() -> float:
 	var jugador = get_tree().get_root().find_child("Player", true, false)
@@ -51,6 +65,19 @@ func _process1(delta: float) -> void:
 		else:
 			print("Lejos del jugador")
 
+func _interaccion_curandero() -> void:
+	if GameManager.inventario["ungüento"]:
+		dialogo_ui.iniciar_dialogo("curandero_ya_entregado")
+		dialogo_ui.dialogo_terminado.connect(_on_dialogo_terminado, CONNECT_ONE_SHOT)
+	elif GameManager.inventario["comida"] >= 3:
+		GameManager.inventario["comida"] -= 3
+		GameManager.inventario["ungüento"] = true
+		dialogo_ui.iniciar_dialogo("curandero_con_comida")
+		dialogo_ui.dialogo_terminado.connect(_on_dialogo_terminado, CONNECT_ONE_SHOT)
+	else:
+		dialogo_ui.iniciar_dialogo("curandero_sin_comida")
+		dialogo_ui.dialogo_terminado.connect(_on_dialogo_terminado, CONNECT_ONE_SHOT)			
+
 func interactuar() -> void:
 	if dialogo_ui == null:
 		dialogo_ui = get_tree().current_scene.find_child("DialogoUI", true, false)
@@ -58,6 +85,9 @@ func interactuar() -> void:
 		return
 	if dialogo_ui.dialogo_terminado.is_connected(_on_dialogo_terminado):
 		dialogo_ui.dialogo_terminado.disconnect(_on_dialogo_terminado)
+	if es_curandero:
+		_interaccion_curandero()
+		return	
 	
 	if es_cabildo:
 		_interaccion_cabildo()
@@ -89,9 +119,13 @@ func _on_cabildo_alerta_terminado() -> void:
 		mendoza.mostrar_menu_acusacion()
 
 func _on_dialogo_terminado() -> void:
+	if nombre == "Campamento":
+		GameManager.stats_jugador["hp"] = GameManager.stats_jugador["hp_max"]
+	print("HP recuperado completamente.")
 	if da_sable_corvo and not GameManager.tiene_sable_corvo:
 		if GameManager.eventos["espia_descubierto"]:
 			GameManager.obtener_sable_corvo()
+			
 
 	if es_reclutable and not GameManager.eventos["cabral_reclutado"]:
 		GameManager.completar_evento("cabral_reclutado")
@@ -113,6 +147,7 @@ func _iniciar_combate_espia() -> void:
 	else:
 		GameManager.completar_evento("espia_descubierto")
 	GameManager.patrullas_derrotadas += 1
+	GameManager.ultima_patrulla_enfrentada = nombre
 	ya_interactuado = true
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/combate.tscn")
 	

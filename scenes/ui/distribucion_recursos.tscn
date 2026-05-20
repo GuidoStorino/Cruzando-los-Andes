@@ -93,7 +93,7 @@ offset_bottom = 290.0
 layout_mode = 2
 text = "Soldados:"
 
-[node name="BotonSoldadoMenos" type="Button" parent="Panel/ContenedorSoldados" unique_id=1822784776]
+[node name="BotonSoldadosMenos" type="Button" parent="Panel/ContenedorSoldados" unique_id=1822784776]
 layout_mode = 2
 text = "-"
 

@@ -8,6 +8,19 @@ var tiene_sable_corvo: bool = false
 var sable_corvo_equipado: bool = false
 var pistas_recolectadas: int = 0
 var acusacion_incorrecta: bool = false
+var mapa_tactico_completado: bool = false
+
+
+var estrategia = {
+	"izquierda": 0,
+	"centro": 0,
+	"derecha": 0,
+}
+var inventario = {
+	"comida": 0,
+	"pala": false,
+	"ungüento": false,
+}
 
 # Flags de eventos completados
 var eventos = {
@@ -17,6 +30,9 @@ var eventos = {
 	"destacamento_derrotado": false,
 	"chacabuco_ganado": false,
 	"cabral_salvo_sanmartin": false,
+	"paso_desbloqueado": false,
+	"mula_curada": false,
+	"soldado_encontrado": false,
 }
 
 # Recursos para la travesía (Acto 2)
@@ -40,8 +56,9 @@ var stats_jugador = {
 
 # Cooldown del Sable Corvo
 var sable_cooldown: int = 0
-
+var patrullas_vencidas_acto2: Array = []
 var patrullas_derrotadas: int = 0
+var ultima_patrulla_enfrentada: String = ""
 
 func completar_evento(evento: String) -> void:
 	if eventos.has(evento):
@@ -90,9 +107,20 @@ func resetear_acto() -> void:
 		acusacion_incorrecta = false
 	elif acto_actual == 2:
 		eventos["travesia_completada"] = false
+		eventos["paso_desbloqueado"] = false
+		eventos["mula_curada"] = false
+		eventos["soldado_encontrado"] = false
+		patrullas_vencidas_acto2 = []
+		ultima_patrulla_enfrentada = ""
 		patrullas_derrotadas = 1
 		segmento_actual = 1
-		recursos = {"puntos_totales": 300, "comida": 0, "municion": 0, "soldados": 0}
+		inventario = {
+		"comida": 0,
+		"pala": false,
+		"ungüento": false,
+		
+	}
 	elif acto_actual == 3:
 		eventos["destacamento_derrotado"] = false
 		patrullas_derrotadas = 2
+		mapa_tactico_completado = false

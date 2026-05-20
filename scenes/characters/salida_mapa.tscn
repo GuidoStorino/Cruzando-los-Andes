@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cu1sqd8uuj6cc"]
+
+[ext_resource type="Script" uid="uid://dey5fpqp2itg6" path="res://scripts/salida_mapa.gd" id="1_ax1as"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1as"]
+size = Vector2(80, 16)
+
+[node name="SalidaMapa" type="Area2D" unique_id=1131279445]
+script = ExtResource("1_ax1as")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1626998410]
+shape = SubResource("RectangleShape2D_ax1as")
+debug_color = Color(0.64705884, 0.23921569, 0.4, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1803055470]
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 74.0
+offset_bottom = 3.0
+text = "-> Chacabuco"

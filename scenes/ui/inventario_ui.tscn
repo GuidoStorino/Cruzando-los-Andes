@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bpxbpt0ua1s7m"]
+
+[ext_resource type="Script" uid="uid://cbr1juj0nvyk" path="res://scripts/inventario_ui.gd" id="1_5s2bx"]
+
+[node name="InventarioUI" type="CanvasLayer" unique_id=21778518]
+script = ExtResource("1_5s2bx")
+
+[node name="Panel" type="Panel" parent="." unique_id=1142833989]
+offset_right = 120.0
+offset_bottom = 90.0
+
+[node name="LabelTitulo" type="Label" parent="Panel" unique_id=150848918]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 28.0
+text = "Inventario"
+
+[node name="LabelComida" type="Label" parent="Panel" unique_id=1004025632]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 25.0
+offset_right = 82.0
+offset_bottom = 48.0
+text = "Comida: 0"
+
+[node name="LabelPala" type="Label" parent="Panel" unique_id=1570615567]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 45.0
+offset_bottom = 68.0
+text = "Pala: No"
+
+[node name="LabelUngüento" type="Label" parent="Panel" unique_id=1153100274]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 65.0
+offset_right = 113.0
+offset_bottom = 88.0
+text = "Ungüento: No"

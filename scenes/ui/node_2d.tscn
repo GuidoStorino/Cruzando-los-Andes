@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqer4eycfdaq1"]
+
+[ext_resource type="Script" uid="uid://r7pfk7d20iud" path="res://scripts/textura.gd" id="1_okbjf"]
+
+[node name="Node2D" type="Node2D" unique_id=1423119897]
+script = ExtResource("1_okbjf")

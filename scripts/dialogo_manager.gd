@@ -13,12 +13,11 @@ var dialogos = {
 	],
 	"cabildo_neutral": [
 		"Cabildo: General, aún no tenemos información suficiente.",
-		"Cabildo: Hable con todos los soldados antes de actuar.",
 	],
 	"cabildo_alerta": [
 		"Cabildo: General, tenemos un problema grave.",
 		"Cabildo: Hay un espía infiltrado entre sus hombres.",
-		"Cabildo: Debe descubrirlo antes de partir. ¿A quién acusa?",
+		"Cabildo: Debe descubrirlo antes de partir.",
 	],
 	"cabildo_sable_post_espia": [
 		"Cabildo: General, eliminó la amenaza. El ejército está a salvo.",
@@ -27,20 +26,20 @@ var dialogos = {
 		"San Martín: Lo acepto con honor. No lo desenvainaré sin razón, ni lo envainaré sin honor.",
 	],
 	"soldado_inocente_2": [
-		"Soldado Pérez: A sus órdenes, mi General.",
-		"Soldado Pérez: Ese Quiroga llegó hace poco y ya anda haciendo preguntas sobre las rutas del cruce.",
+		"Soldado Pérez: A sus órdenes, San Martín. Una observación...",
+		"Soldado Pérez: López anda haciendo preguntas sobre las rutas del cruce.",
 	],
 	"soldado_inocente_3": [
 		"Soldado López: Mi General, desconfíe de quien no mira a los ojos.",
-		"Soldado López: Ramos y Quiroga estuvieron hablando en secreto esta mañana.",
+		"Soldado López: Ramos y Cabral estuvieron hablando en secreto.",
 	],
 	"soldado_espia": [
-		"Soldado Quiroga: Eh... buenas, mi General. Todo tranquilo por aquí.",
-		"Soldado Quiroga: No sé nada de ningún depósito. Yo solo... estaba dando una vuelta.",
+		"Soldado Quiroga: Mi General. Todo tranquilo por aquí.",
+		"Soldado Quiroga: Las carreteras están despejadas esta mañana...",
 	],
 	"acusacion_correcta": [
 		"San Martín: Quiroga. Sé quién sos.",
-		"Quiroga: ¡Maldición! ¡No llegarán a Chile!",
+		"Quiroga: ¡Joder! ¡No llegarán a Chile!",
 	],
 	"acusacion_incorrecta": [
 		"San Martín: Sos el espía.",
@@ -48,7 +47,7 @@ var dialogos = {
 		"San Martín: ...Me equivoqué. El espía sigue suelto y nuestros planes están comprometidos.",
 	],
 	"cabral_reclutamiento": [
-		"Cabral: Mi General, soy Juan Bautista Cabral. Vengo a ofrecer mi vida por la patria.",
+		"Cabral: Hola San Martín, soy Juan Bautista Cabral. Vengo a ofrecer mi vida por la patria.",
 		"San Martín: Bienvenido, soldado. La patria necesita hombres como vos.",
 		"Cabral: A sus órdenes, mi General. Hasta el último aliento.",
 	],
@@ -94,6 +93,62 @@ var dialogos = {
 		"Cabral: ¿Y ahora qué?",
 		"San Martín: Ahora... Perú.",
 	],
+	"soldado_pista_1": [
+	"Soldado Rivas: Vi al cabo Herrera ir hacia el norte con su mula.",
+	"Soldado Rivas: Fue dispuesto a explorar pero no volvió.",
+],
+"soldado_pista_2": [
+	"Soldado Núñez: Tenga cuidado, mi General.",
+	"Hay patrullas enemigas en todas partes.",
+],
+"soldado_pista_3": [
+	"Soldado Díaz: Vi huellas de mula yendo hacia el norte.",
+	"Soldado Díaz: Pero el paso está bloqueado por la nieve. Nadie puede pasar.",
+],
+"soldado_pista_4": [
+	"Soldado Mora: Sin novedades por acá...",
+	"Sólo espero que no esté herido, pero deberíamos mantener al médico alerta",
+],
+"curandero_sin_comida": [
+	"Médico: Para sanarla necesito un ungüento de yuyos.",
+	"Si tan solo consiguiéramos algunas hierbas tal vez podría hacer algo...",
+],
+"curandero_con_comida": [
+	"Curandero: Bien, esto nos va a servir mucho.",
+	"Curandero: Tomá el ungüento. Ojalá llegues a tiempo.",
+],
+"curandero_ya_entregado": [
+	"Curandero: Ya te di el ungüento. ¡Andá a buscar a ese soldado!",
+],
+"campamento_descanso": [
+	"Aquí podés descansar y recuperar fuerzas.",
+	"San Martín descansa brevemente. El ejército lo necesita en pie.",
+],
+"paso_bloqueado_sin_pala": [
+	"El paso está bloqueado por nieve y hielo.",
+	"Necesitás algo para despejarlo.",
+],
+"paso_bloqueado_con_pala": [
+	"San Martín usa la pala para despejar la nieve.",
+],
+"mula_sin_ungüento": [
+	"La mula de Herrera está herida. No puede moverse.",
+],
+"mula_con_ungüento": [
+	"San Martín aplica el ungüento en la mula.",
+	"La mula se recupera lentamente."
+],
+"soldado_perdido_encontrado": [
+	"Cabo Herrera: ¡Mi General! No podía abandonar a mi mula.",
+	"Cabo Herrera: Gracias por venir a buscarme.",
+	"San Martín: Nadie se queda atrás, Herrera. Volvamos al campamento.",
+	"Cabral: ¡Lo encontramos! El ejército está completo, mi General.",
+],
+"cabral_acto2_inicio": [
+	"Cabral: Mi General, el cabo Herrera no regresó.",
+	"Cabral: Fue hacia el norte con su mula. Deberíamos buscarlo.",
+	"San Martín: Tenés razón. Hablemos con los soldados, alguien sabe algo.",
+],
 }
 
 func get_dialogo(id: String) -> Array:
