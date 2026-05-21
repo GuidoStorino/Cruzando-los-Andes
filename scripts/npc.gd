@@ -140,6 +140,8 @@ func _on_dialogo_terminado() -> void:
 		ya_interactuado = false
 	else:
 		ya_interactuado = true
+		
+		
 
 func _iniciar_combate_espia() -> void:
 	if GameManager.acto_actual == 3:
@@ -147,8 +149,7 @@ func _iniciar_combate_espia() -> void:
 	else:
 		GameManager.completar_evento("espia_descubierto")
 	GameManager.patrullas_derrotadas += 1
-	GameManager.ultima_patrulla_enfrentada = nombre
+	GameManager.ultima_patrulla_enfrentada = str(global_position)
+	GameManager.posicion_guardada = get_tree().current_scene.find_child("Player", true, false).global_position
 	ya_interactuado = true
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/combate.tscn")
-	
-	

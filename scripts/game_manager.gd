@@ -9,7 +9,7 @@ var sable_corvo_equipado: bool = false
 var pistas_recolectadas: int = 0
 var acusacion_incorrecta: bool = false
 var mapa_tactico_completado: bool = false
-
+var posicion_guardada: Vector2 = Vector2.ZERO
 
 var estrategia = {
 	"izquierda": 0,

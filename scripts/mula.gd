@@ -30,6 +30,13 @@ func intentar_curar() -> void:
 func _on_mula_curada() -> void:
 	curada = true
 	GameManager.completar_evento("mula_curada")
+	
+	# La mula se corre hacia un costado
+	var tween = create_tween()
+	tween.tween_property(self, "position", position + Vector2(40, 0), 0.8)
+	
+	await get_tree().create_timer(0.9).timeout
+	
 	dialogo_ui.iniciar_dialogo("soldado_perdido_encontrado")
 	dialogo_ui.dialogo_terminado.connect(_on_soldado_encontrado, CONNECT_ONE_SHOT)
 

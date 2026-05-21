@@ -8,6 +8,11 @@ size = Vector2(80, 16)
 [node name="SalidaMapa" type="Area2D" unique_id=1131279445]
 script = ExtResource("1_ax1as")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1311762333]
+offset_right = 30.0
+offset_bottom = 80.0
+color = Color(1, 0.05490196, 0.09803922, 1)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1626998410]
 shape = SubResource("RectangleShape2D_ax1as")
 debug_color = Color(0.64705884, 0.23921569, 0.4, 1)
