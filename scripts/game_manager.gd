@@ -1,7 +1,7 @@
 extends Node
 
 # Acto actual (1 al 5)
-var acto_actual: int = 1
+var acto_actual: int = 2
 
 # Inventario
 var tiene_sable_corvo: bool = false

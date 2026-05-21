@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bwhk3j50srigw"]
+
+[ext_resource type="PackedScene" uid="uid://77d1qy466tgu" path="res://scenes/characters/npc.tscn" id="1_676tr"]
+[ext_resource type="PackedScene" uid="uid://blh1pbq3ov2rw" path="res://scenes/characters/mula.tscn" id="2_wkt50"]
+[ext_resource type="PackedScene" uid="uid://dllg68lx120j0" path="res://scenes/characters/item.tscn" id="3_bd07j"]
+[ext_resource type="PackedScene" uid="uid://bfjoncrmfbtwf" path="res://scenes/characters/player.tscn" id="4_ctsbm"]
+[ext_resource type="PackedScene" uid="uid://4ub4usf7yqaq" path="res://scenes/ui/mapa_consultable.tscn" id="5_7kkul"]
+
+[node name="travesia3" type="Node2D" unique_id=2034290684]
+
+[node name="Objetos" type="Node2D" parent="." unique_id=793843091]
+
+[node name="Patrullas" type="Node" parent="Objetos" unique_id=139479695]
+
+[node name="NPC" parent="Objetos/Patrullas" unique_id=823760919 instance=ExtResource("1_676tr")]
+position = Vector2(165, 3)
+
+[node name="NPC2" parent="Objetos/Patrullas" unique_id=642114309 instance=ExtResource("1_676tr")]
+position = Vector2(138, -1)
+
+[node name="NPC3" parent="Objetos/Patrullas" unique_id=952559321 instance=ExtResource("1_676tr")]
+position = Vector2(102, 58)
+
+[node name="NPC4" parent="Objetos/Patrullas" unique_id=1424717584 instance=ExtResource("1_676tr")]
+position = Vector2(-33, 38)
+
+[node name="NPCs" type="Node" parent="Objetos" unique_id=1638823296]
+
+[node name="NPC" parent="Objetos/NPCs" unique_id=1888132230 instance=ExtResource("1_676tr")]
+position = Vector2(-55, -45)
+id_dialogo = "soldado_pista_4"
+
+[node name="NPC2" parent="Objetos/NPCs" unique_id=720963815 instance=ExtResource("1_676tr")]
+position = Vector2(149, 57)
+
+[node name="NPC3" parent="Objetos/NPCs" unique_id=938975566 instance=ExtResource("1_676tr")]
+position = Vector2(-50, 78)
+
+[node name="NPC4" parent="Objetos/NPCs" unique_id=1167631005 instance=ExtResource("1_676tr")]
+position = Vector2(38, 83)
+
+[node name="NPC5" parent="Objetos/NPCs" unique_id=532223852 instance=ExtResource("1_676tr")]
+position = Vector2(-89, 87)
+
+[node name="NPC6" parent="Objetos/NPCs" unique_id=494080899 instance=ExtResource("1_676tr")]
+position = Vector2(43, -51)
+id_dialogo = "soldado_pista_4"
+
+[node name="NPC7" parent="Objetos/NPCs" unique_id=1906144717 instance=ExtResource("1_676tr")]
+position = Vector2(66, 51)
+
+[node name="Mula" parent="Objetos/NPCs" unique_id=970809291 instance=ExtResource("2_wkt50")]
+position = Vector2(-21, -55)
+
+[node name="Items" type="Node" parent="Objetos" unique_id=1451415429]
+
+[node name="item" parent="Objetos/Items" unique_id=1018192138 instance=ExtResource("3_bd07j")]
+position = Vector2(86, -46)
+
+[node name="item2" parent="Objetos/Items" unique_id=267332047 instance=ExtResource("3_bd07j")]
+position = Vector2(-10, 55)
+
+[node name="item3" parent="Objetos/Items" unique_id=64540117 instance=ExtResource("3_bd07j")]
+position = Vector2(-96, 21)
+
+[node name="item4" parent="Objetos/Items" unique_id=558679704 instance=ExtResource("3_bd07j")]
+position = Vector2(-83, -14)
+
+[node name="Player" parent="." unique_id=1631804775 instance=ExtResource("4_ctsbm")]
+position = Vector2(1, 0)
+
+[node name="MapaConsultable" parent="." unique_id=1486860539 instance=ExtResource("5_7kkul")]
