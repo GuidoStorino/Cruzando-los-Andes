@@ -144,6 +144,12 @@ func _on_dialogo_terminado() -> void:
 		
 
 func _iniciar_combate_espia() -> void:
+	var escena_path = get_tree().current_scene.scene_file_path
+	if "travesia3" in escena_path:
+		GameManager.acto_actual = 3
+	elif "travesia2" in escena_path or "mendoza" in escena_path:
+		pass  # acto_actual ya es correcto
+	
 	if GameManager.acto_actual == 3:
 		GameManager.completar_evento("destacamento_derrotado")
 	else:

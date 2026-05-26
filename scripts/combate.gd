@@ -183,11 +183,14 @@ func terminar_combate(victoria: bool) -> void:
 		mostrar_mensaje("¡Victoria!")
 		if GameManager.acto_actual == 2:
 			GameManager.patrullas_vencidas_acto2.append(GameManager.ultima_patrulla_enfrentada)
+		elif GameManager.acto_actual == 3:
+			GameManager.eventos["patrulla_acto3_" + GameManager.ultima_patrulla_enfrentada] = true
 		await get_tree().create_timer(2.0).timeout
+		print("DEBUG acto_actual en combate: ", GameManager.acto_actual)
 		match GameManager.acto_actual:
 			1: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/mendoza.tscn")
 			2: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/travesia2.tscn")
-			3: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/chacabuco.tscn")
+			3: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/travesia_3.tscn")
 			_: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/mendoza.tscn")
 	else:
 		mostrar_mensaje("San Martín se retira... El ejército reagrupa fuerzas.")
@@ -196,5 +199,5 @@ func terminar_combate(victoria: bool) -> void:
 		match GameManager.acto_actual:
 			1: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/mendoza.tscn")
 			2: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/travesia2.tscn")
-			3: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/chacabuco.tscn")
+			3: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/travesia_3.tscn")
 			_: get_tree().call_deferred("change_scene_to_file", "res://scenes/world/mendoza.tscn")

@@ -33,6 +33,18 @@ var eventos = {
 	"paso_desbloqueado": false,
 	"mula_curada": false,
 	"soldado_encontrado": false,
+	"piedra_encontrada":       false,
+"sable_afilado":           false,
+"explorador1_consultado":  false,
+"explorador2_consultado":  false,
+"exploradores_consultados":false,
+"flanco_correcto":         false,
+"soldado_a_hablado":       false,
+"soldado_b_hablado":       false,
+"fusil_encontrado":        false,
+"fusil_entregado":         false,
+"cadena_completada":       false,
+"mula_montada":            false,
 }
 
 # Recursos para la travesía (Acto 2)
@@ -118,6 +130,8 @@ func resetear_acto() -> void:
 		"comida": 0,
 		"pala": false,
 		"ungüento": false,
+		"piedra_afilar": false,
+		"fusil":         false,
 		
 	}
 	elif acto_actual == 3:

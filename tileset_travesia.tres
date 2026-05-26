@@ -13,5 +13,6 @@ texture = ExtResource("1_r607f")
 4:0/0 = 0
 
 [resource]
+tile_size = Vector2i(480, 640)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4dj3l")
