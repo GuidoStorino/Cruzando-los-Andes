@@ -171,6 +171,10 @@ var dialogos = {
 		"Armero: Con esto el Sable Corvo cortará el aire antes de tocar al enemigo.",
 		"El Sable Corvo ha sido afilado. Su daño aumenta permanentemente.",
 	],
+	
+	"mula_ya_montada": [
+	"Soldado: Ya está montado, General. Presione Z para bajar.",
+],
 
 	"armero_ya_afilado": [
 		"Armero: El sable ya está en perfectas condiciones, General.",

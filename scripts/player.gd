@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 80
 
 var dialogo_ui: Node = null
+var montado: bool = false  
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -13,7 +14,11 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
-	
+
+	if GameManager.eventos.get("mula_montada", false) and Input.is_action_just_pressed("montar_mula"):
+		montado = not montado
+		print("montado: ", montado)
+
 	var direction := Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
 		direction.x = 1
@@ -24,5 +29,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_up"):
 		direction.y = -1
 
-	velocity = direction * SPEED
+	var velocidad = SPEED * 3 if montado else SPEED
+	velocity = direction * velocidad
 	move_and_slide()

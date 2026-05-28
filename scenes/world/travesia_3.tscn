@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://77d1qy466tgu" path="res://scenes/characters/npc.tscn" id="1_676tr"]
 [ext_resource type="TileSet" uid="uid://cjfe4x7bfag38" path="res://tileset_travesia.tres" id="1_bd07j"]
 [ext_resource type="Script" uid="uid://cpac4457v2hk7" path="res://scripts/travesia_3.gd" id="1_ctsbm"]
-[ext_resource type="PackedScene" uid="uid://blh1pbq3ov2rw" path="res://scenes/characters/mula.tscn" id="2_wkt50"]
 [ext_resource type="PackedScene" uid="uid://dllg68lx120j0" path="res://scenes/characters/item.tscn" id="3_bd07j"]
 [ext_resource type="PackedScene" uid="uid://bfjoncrmfbtwf" path="res://scenes/characters/player.tscn" id="4_ctsbm"]
 [ext_resource type="PackedScene" uid="uid://4ub4usf7yqaq" path="res://scenes/ui/mapa_consultable.tscn" id="5_7kkul"]
 [ext_resource type="PackedScene" uid="uid://b8emn52nfhlef" path="res://scenes/ui/dialogo_ui.tscn" id="7_ctsbm"]
+[ext_resource type="PackedScene" uid="uid://cu1sqd8uuj6cc" path="res://scenes/characters/salida_mapa.tscn" id="8_ctsbm"]
 
 [node name="travesia3" type="Node2D" unique_id=2034290684]
 script = ExtResource("1_ctsbm")
@@ -48,48 +48,59 @@ position = Vector2(-120, -179)
 nombre = "Explorador Mendez"
 id_dialogo = "explorador_1_falso"
 repetible = true
+es_explorador = 1
 
 [node name="NPC2" parent="Objetos/NPCs" unique_id=720963815 instance=ExtResource("1_676tr")]
 position = Vector2(105, -176)
 id_dialogo = "explorador_2_correcto"
 repetible = true
+es_explorador = 2
 
 [node name="NPC3" parent="Objetos/NPCs" unique_id=938975566 instance=ExtResource("1_676tr")]
 position = Vector2(-62, -93)
 id_dialogo = "ohiggins_espera_todo"
 repetible = true
+es_ohiggins = true
 
 [node name="NPC4" parent="Objetos/NPCs" unique_id=1167631005 instance=ExtResource("1_676tr")]
-position = Vector2(-127, -73)
+position = Vector2(-127, -75)
 id_dialogo = "oficial_espera_exploradores"
 repetible = true
+es_oficial_mapa = true
 
 [node name="NPC5" parent="Objetos/NPCs" unique_id=532223852 instance=ExtResource("1_676tr")]
 position = Vector2(42, -82)
 id_dialogo = "soldado_a_necesita_vendas"
 repetible = true
+es_soldado_cadena = 1
 
 [node name="NPC6" parent="Objetos/NPCs" unique_id=494080899 instance=ExtResource("1_676tr")]
-position = Vector2(-10, -180)
+position = Vector2(-10, -179)
 id_dialogo = "soldado_b_perdio_fusil"
 repetible = true
+es_soldado_cadena = 2
 
 [node name="NPC7" parent="Objetos/NPCs" unique_id=1906144717 instance=ExtResource("1_676tr")]
 position = Vector2(52, -177)
 id_dialogo = "soldado_c_espera"
 repetible = true
+es_soldado_cadena = 3
 
 [node name="NPC8" parent="Objetos/NPCs" unique_id=105097992 instance=ExtResource("1_676tr")]
 position = Vector2(-64, -177)
 id_dialogo = "armero_sin_piedra"
 repetible = true
-
-[node name="Mula" parent="Objetos/NPCs" unique_id=970809291 instance=ExtResource("2_wkt50")]
-position = Vector2(-21, -55)
+es_armero = true
 
 [node name="NPC9" parent="Objetos/NPCs" unique_id=1102872536 instance=ExtResource("1_676tr")]
 nombre = "Soldado con mula"
 id_dialogo = "mula_ofrecida"
+repetible = true
+es_mula_acto3 = true
+
+[node name="Campamento" parent="Objetos/NPCs" unique_id=328749545 instance=ExtResource("1_676tr")]
+position = Vector2(-30, -13)
+id_dialogo = "campamento_descanso"
 repetible = true
 
 [node name="Items" type="Node" parent="Objetos" unique_id=1451415429]
@@ -118,3 +129,7 @@ position = Vector2(-1, 8)
 [node name="MapaConsultable" parent="." unique_id=1486860539 instance=ExtResource("5_7kkul")]
 
 [node name="DialogoUI" parent="." unique_id=1689896403 instance=ExtResource("7_ctsbm")]
+
+[node name="SalidaMapa" parent="." unique_id=1131279445 instance=ExtResource("8_ctsbm")]
+position = Vector2(68, 9)
+escena_destino = "res://scenes/world/travesia2.tscn"

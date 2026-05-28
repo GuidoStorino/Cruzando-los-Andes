@@ -38,18 +38,17 @@ var conflictos_completos: int = 0  # necesitamos 3 para desbloquear O'Higgins
 #  READY
 # ─────────────────────────────────────────────
 func _ready() -> void:
-	# Restaurar posición si venimos de combate
+	GameManager.acto_actual = 3  # temporal
 	if GameManager.posicion_guardada != Vector2.ZERO:
 		player.global_position = GameManager.posicion_guardada
 		GameManager.posicion_guardada = Vector2.ZERO
 
-	# Ocultar patrullas ya vencidas
 	for p in patrullas.get_children():
 		var key = "patrulla_acto3_" + p.name
 		if GameManager.eventos.get(key, false):
 			p.visible = false
-			if p.has_method("set"):
-				p.ya_interactuado = true
+			p.ya_interactuado = true
+			p.ya_interactuado = true
 
 	# Ocultar ítems ya recogidos
 	if GameManager.inventario.get("piedra_afilar", false):

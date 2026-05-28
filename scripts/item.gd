@@ -37,4 +37,11 @@ func recoger() -> void:
 		"ungüento":
 			GameManager.inventario["ungüento"] = true
 			print("Ungüento recogido!")
+		"piedra_afilar":                                          # ← agregar
+			GameManager.inventario["piedra_afilar"] = true
+			print("Piedra de afilar recogida!")
+		"fusil":                                                  # ← agregar
+			GameManager.inventario["fusil"] = true
+			GameManager.eventos["fusil_encontrado"] = true
+			print("Fusil recogido!")
 	visible = false

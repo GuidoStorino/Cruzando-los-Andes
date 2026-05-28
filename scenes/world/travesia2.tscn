@@ -93,9 +93,10 @@ repetible = true
 es_curandero = true
 
 [node name="Cabral" parent="Objetos/NPCs" unique_id=333528487 instance=ExtResource("2_q5weo")]
-position = Vector2(-200, -21)
+position = Vector2(-201, -19)
 id_dialogo = "cabral_acto2_inicio"
 repetible = true
+es_mula_acto3 = true
 
 [node name="NPC8" parent="Objetos/NPCs" unique_id=2071778987 instance=ExtResource("2_q5weo")]
 position = Vector2(300, -1500)
