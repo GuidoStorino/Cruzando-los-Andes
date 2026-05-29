@@ -22,6 +22,11 @@ extends StaticBody2D
 
 @onready var label = $Label
 
+@export var es_soldado_herido_acto4: bool = false
+@export var es_soldado_mula_acto4: bool = false
+@export var es_oficial_rendido_acto4: bool = false
+@export var es_campamento_acto4: bool = false
+
 var dialogo_ui: Node = null
 var ya_interactuado: bool = false
 
@@ -62,6 +67,51 @@ func _interaccion_mula() -> void:
 
 	dialogo_ui.iniciar_dialogo("mula_ofrecida")
 	dialogo_ui.dialogo_terminado.connect(_on_mula_aceptada, CONNECT_ONE_SHOT)
+
+func _interaccion_soldado_herido_acto4() -> void:
+	if GameManager.eventos.get("soldado_herido_resuelto", false):
+		return
+	dialogo_ui.iniciar_dialogo("soldado_herido_dialogo")
+	dialogo_ui.dialogo_terminado.connect(_on_soldado_herido_acto4_dialogo, CONNECT_ONE_SHOT)
+ 
+func _on_soldado_herido_acto4_dialogo() -> void:
+	var escena = get_tree().current_scene
+	if escena.has_method("mostrar_opciones_soldado_herido"):
+		escena.mostrar_opciones_soldado_herido()
+ 
+func _interaccion_mula_acto4() -> void:
+	if GameManager.eventos.get("mula_acto4_resuelta", false):
+		return
+	dialogo_ui.iniciar_dialogo("mula_acto4_dialogo")
+	dialogo_ui.dialogo_terminado.connect(_on_mula_acto4_dialogo, CONNECT_ONE_SHOT)
+ 
+func _on_mula_acto4_dialogo() -> void:
+	var escena = get_tree().current_scene
+	if escena.has_method("mostrar_opciones_mula_acto4"):
+		escena.mostrar_opciones_mula_acto4()
+ 
+func _interaccion_oficial_rendido_acto4() -> void:
+	if GameManager.eventos.get("oficial_resuelto", false):
+		dialogo_ui.iniciar_dialogo("oficial_ignorado")
+		dialogo_ui.dialogo_terminado.connect(_on_dialogo_terminado, CONNECT_ONE_SHOT)
+		return
+	dialogo_ui.iniciar_dialogo("oficial_rendido_dialogo")
+	dialogo_ui.dialogo_terminado.connect(_on_oficial_rendido_acto4_dialogo, CONNECT_ONE_SHOT)
+ 
+func _on_oficial_rendido_acto4_dialogo() -> void:
+	var escena = get_tree().current_scene
+	if escena.has_method("mostrar_opciones_oficial_rendido"):
+		escena.mostrar_opciones_oficial_rendido()
+ 
+func _interaccion_campamento_acto4() -> void:
+	dialogo_ui.iniciar_dialogo("campamento_acto4_dialogo")
+	dialogo_ui.dialogo_terminado.connect(_on_campamento_acto4_terminado, CONNECT_ONE_SHOT)
+ 
+func _on_campamento_acto4_terminado() -> void:
+	var escena = get_tree().current_scene
+	if escena.has_method("pausar_clima_campamento"):
+		escena.pausar_clima_campamento()
+ 
 
 func _on_mula_aceptada() -> void:
 	GameManager.eventos["mula_montada"] = true
@@ -105,6 +155,19 @@ func interactuar() -> void:
 
 	if id_dialogo == "":
 		return
+		
+	if es_soldado_herido_acto4:
+		_interaccion_soldado_herido_acto4()
+		return
+	if es_soldado_mula_acto4:
+		_interaccion_mula_acto4()
+		return
+	if es_oficial_rendido_acto4:
+		_interaccion_oficial_rendido_acto4()
+		return
+	if es_campamento_acto4:
+		_interaccion_campamento_acto4()
+		return	
 
 	dialogo_ui.iniciar_dialogo(id_dialogo)
 	dialogo_ui.dialogo_terminado.connect(_on_dialogo_terminado, CONNECT_ONE_SHOT)

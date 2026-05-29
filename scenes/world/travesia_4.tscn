@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bi06y1u8ox708"]
+
+[ext_resource type="Script" uid="uid://dk84qckyh6gmd" path="res://scripts/travesia_4.gd" id="1_cquda"]
+[ext_resource type="PackedScene" uid="uid://77d1qy466tgu" path="res://scenes/characters/npc.tscn" id="1_nggk6"]
+[ext_resource type="PackedScene" uid="uid://dllg68lx120j0" path="res://scenes/characters/item.tscn" id="2_cquda"]
+[ext_resource type="PackedScene" uid="uid://bfjoncrmfbtwf" path="res://scenes/characters/player.tscn" id="4_pus3p"]
+[ext_resource type="PackedScene" uid="uid://b8emn52nfhlef" path="res://scenes/ui/dialogo_ui.tscn" id="5_p40xu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p40xu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkrf6"]
+
+[node name="Travesia4" type="Node2D" unique_id=996426405]
+script = ExtResource("1_cquda")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1327166724]
+
+[node name="Objetos" type="Node2D" parent="." unique_id=1147779877]
+position = Vector2(2, -2)
+
+[node name="NPCs" type="Node" parent="Objetos" unique_id=403360003]
+
+[node name="NPC" parent="Objetos/NPCs" unique_id=823760919 instance=ExtResource("1_nggk6")]
+position = Vector2(-43, 68)
+id_dialogo = "acto4_intro"
+repetible = true
+
+[node name="NPC2" parent="Objetos/NPCs" unique_id=1412062189 instance=ExtResource("1_nggk6")]
+position = Vector2(228, 35)
+id_dialogo = "acto4_intro"
+repetible = true
+
+[node name="NPC3" parent="Objetos/NPCs" unique_id=1771987977 instance=ExtResource("1_nggk6")]
+position = Vector2(16, 68)
+nombre = "Soldado herido"
+id_dialogo = "soldado_herido_dialogo"
+repetible = true
+es_soldado_herido_acto4 = true
+
+[node name="NPC4" parent="Objetos/NPCs" unique_id=309536442 instance=ExtResource("1_nggk6")]
+position = Vector2(189, 138)
+nombre = "Rendido"
+id_dialogo = "oficial_rendido_dialogo"
+repetible = true
+es_oficial_rendido_acto4 = true
+
+[node name="NPC5" parent="Objetos/NPCs" unique_id=613517503 instance=ExtResource("1_nggk6")]
+position = Vector2(-121, -4)
+repetible = true
+es_soldado_mula_acto4 = true
+
+[node name="NPC6" parent="Objetos/NPCs" unique_id=1074581975 instance=ExtResource("1_nggk6")]
+position = Vector2(-1, 136)
+repetible = true
+es_campamento_acto4 = true
+
+[node name="Items" type="Node" parent="Objetos" unique_id=1137602712]
+
+[node name="Comida depósito" parent="Objetos/Items" unique_id=1018192138 instance=ExtResource("2_cquda")]
+position = Vector2(162, -51)
+tipo = "comida_deposito"
+cantidad = 3
+
+[node name="Unguento" parent="Objetos/Items" unique_id=1378569005 instance=ExtResource("2_cquda")]
+position = Vector2(19, -60)
+tipo = "ungüento"
+
+[node name="Comida extra sur" parent="Objetos/Items" unique_id=341661880 instance=ExtResource("2_cquda")]
+position = Vector2(88, 35)
+tipo = "comida_extra"
+cantidad = 2
+
+[node name="ZonaVentisca" type="Area2D" parent="." unique_id=1785099618]
+position = Vector2(-87, 285)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaVentisca" unique_id=110224602]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_p40xu")
+
+[node name="SalidaMapa" type="Area2D" parent="." unique_id=154304412]
+position = Vector2(-94, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SalidaMapa" unique_id=149038585]
+shape = SubResource("RectangleShape2D_rkrf6")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1701240934]
+
+[node name="PanelRecursos" type="PanelContainer" parent="UI" unique_id=816323431]
+anchors_preset = -1
+anchor_left = 0.33900002
+anchor_top = 0.5
+anchor_right = 0.33900002
+anchor_bottom = 0.5
+offset_left = -12.720001
+offset_top = -16.0
+offset_right = 27.279999
+offset_bottom = 88.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelRecursos" unique_id=1357142261]
+layout_mode = 2
+
+[node name="LabelClima" type="Label" parent="UI/PanelRecursos/VBoxContainer" unique_id=664907699]
+layout_mode = 2
+
+[node name="LabelComida" type="Label" parent="UI/PanelRecursos/VBoxContainer" unique_id=538626968]
+layout_mode = 2
+
+[node name="LabelMunicion" type="Label" parent="UI/PanelRecursos/VBoxContainer" unique_id=1584561829]
+layout_mode = 2
+
+[node name="LabelSoldados" type="Label" parent="UI/PanelRecursos/VBoxContainer" unique_id=821416572]
+layout_mode = 2
+
+[node name="Player" parent="." unique_id=1631804775 instance=ExtResource("4_pus3p")]
+position = Vector2(68, 177)
+
+[node name="DialogoUI" parent="." unique_id=1689896403 instance=ExtResource("5_p40xu")]
+
+[connection signal="body_entered" from="ZonaVentisca" to="." method="_on_zona_ventisca_body_entered"]
+[connection signal="body_exited" from="ZonaVentisca" to="." method="_on_zona_ventisca_body_exited"]
+[connection signal="body_entered" from="SalidaMapa" to="." method="_on_salida_norte"]

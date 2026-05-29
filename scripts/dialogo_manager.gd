@@ -332,6 +332,162 @@ var dialogos = {
 		"Todavía no es el momento.",
 		"Hable con el General O'Higgins cuando todo esté listo.",
 	],
+	
+		"acto4_intro": [
+		"General San Martín: El paso está más alto de lo que esperábamos.",
+		"O'Higgins: La ventisca empeoró en la última hora, General.",
+		"O'Higgins: Debemos llegar al refugio antes de que el frío se lleve a nuestros hombres.",
+		"General San Martín: Avancemos. Y que Dios nos acompañe.",
+	],
+ 
+# ── CLIMA — mensajes periódicos ───────────────────────────────
+ 
+	"clima_viento_fuerte": [
+		"El viento arrecia. Los hombres consumen más raciones para mantener el calor.",
+	],
+ 
+	"clima_nieve_intensa": [
+		"La nieve cae sin parar. El avance se hace más lento.",
+	],
+ 
+	"clima_frio_extremo": [
+		"El frío es despiadado. Los soldados tiemblan pero siguen marchando.",
+	],
+ 
+	"clima_soldado_perdido": [
+		"Sin comida, un soldado no puede continuar. Se queda atrás.",
+		"El ejército sigue adelante, más reducido.",
+	],
+ 
+	"tormenta_pausada": [
+		"El campamento ofrece algo de abrigo. La ventisca amaina por un momento.",
+	],
+ 
+	"tormenta_reanuda": [
+		"La tormenta vuelve a arreciar. Hay que seguir moviéndose.",
+	],
+ 
+	"zona_ventisca_fuerte": [
+		"Esta zona está completamente expuesta al viento.",
+		"Los recursos se consumen más rápido aquí.",
+	],
+ 
+	"zona_ventisca_salida": [
+		"Saliste de la zona más peligrosa.",
+	],
+ 
+# ── CONFLICTO 1 — EL DEPÓSITO ─────────────────────────────────
+ 
+	"deposito_encontrado": [
+		"Encontraste un depósito abandonado.",
+		"Hay raciones adentro. El ejército las necesita.",
+	],
+ 
+# ── CONFLICTO 2 — EL SOLDADO HERIDO ──────────────────────────
+ 
+	"soldado_herido_dialogo": [
+		"Soldado Pereyra: Mi... General... no puedo seguir.",
+		"Soldado Pereyra: La pierna. Me caí en el paso. No puedo caminar.",
+	],
+ 
+	"soldado_herido_curado": [
+		"Soldado Pereyra: El ungüento... ya puedo apoyar el pie.",
+		"Soldado Pereyra: Gracias, General. Tome estas municiones, las guardaba para un caso extremo.",
+	],
+ 
+	"soldado_herido_sin_unguento": [
+		"No tenés ungüento. No podés curarlo.",
+		"El soldado se queda atrás. El ejército sigue.",
+	],
+ 
+	"soldado_herido_mula": [
+		"Cargás al soldado en la mula.",
+		"La mula ya no puede llevar recursos extra, pero el soldado llega al refugio.",
+	],
+ 
+	"soldado_herido_abandonado": [
+		"No hay otra opción. El soldado queda atrás.",
+		"General San Martín: Volveremos por él cuando esto termine.",
+	],
+ 
+# ── CONFLICTO 3 — LA MULA PERDIDA ────────────────────────────
+ 
+	"mula_acto4_dialogo": [
+		"Soldado Castro: General, una de las mulas se asustó con el viento y se escapó.",
+		"Soldado Castro: La vi doblar hacia el desfiladero lateral. Podría recuperarla.",
+		"Soldado Castro: Pero va a costarnos tiempo... y el frío no espera.",
+	],
+ 
+	"mula_acto4_recuperada": [
+		"Encontraron la mula. Estaba resguardada entre las rocas.",
+		"Puede cargar raciones extra. El esfuerzo valió la pena.",
+	],
+ 
+	"mula_acto4_abandonada": [
+		"Seguís sin la mula. No hay tiempo que perder.",
+	],
+ 
+	"mula_acto4_ocupada": [
+		"La mula ya lleva al soldado herido. No puede cargar nada más.",
+	],
+ 
+# ── CONFLICTO 4 — EL OFICIAL RENDIDO ─────────────────────────
+ 
+	"oficial_rendido_dialogo": [
+		"Oficial Realista: Por favor... no me dejen aquí.",
+		"Oficial Realista: Estoy congelado. No puedo moverme.",
+		"Oficial Realista: Soy el Teniente Varela, del regimiento de Osorio.",
+	],
+ 
+	"oficial_ayudado": [
+		"General San Martín: Nadie muere en estas montañas si podemos evitarlo.",
+		"Teniente Varela: Gracias, General. Les debo la vida.",
+		"Teniente Varela: Hay un atajo al refugio. Sigan el río hacia el noreste.",
+		"El atajo al refugio está desbloqueado.",
+	],
+ 
+	"oficial_arrestado": [
+		"Soldado: Queda detenido bajo custodia del Ejército de los Andes.",
+		"Teniente Varela: Está bien... no tengo fuerzas para resistir.",
+		"La moral del ejército sube. El ataque aumenta en +2.",
+	],
+ 
+	"oficial_ignorado": [
+		"General San Martín: No podemos detenernos.",
+		"O'Higgins: El tiempo apremia, General.",
+	],
+ 
+# ── CAMPAMENTO ────────────────────────────────────────────────
+ 
+	"campamento_acto4_dialogo": [
+		"Soldado: General, hay un refugio improvisado aquí.",
+		"Soldado: Podemos descansar un momento. La ventisca amainará por un rato.",
+	],
+ 
+	"campamento_ya_usado": [
+		"Ya descansaron aquí. Hay que seguir moviéndose.",
+	],
+ 
+# ── FINAL DEL ACTO ────────────────────────────────────────────
+ 
+	"acto4_no_recursos": [
+		"El ejército está demasiado debilitado para avanzar.",
+		"Necesitás más comida o más hombres para llegar al refugio.",
+	],
+ 
+	"acto4_derrota": [
+		"El ejército no puede continuar.",
+		"General San Martín: Reagrupemos fuerzas. No es el fin.",
+		"Los hombres se retiran para recuperar fuerzas y volver a intentarlo.",
+	],
+ 
+	"acto4_llegada_refugio": [
+		"¡El refugio! El ejército llega exhausto pero entero.",
+		"General San Martín: Lo logramos. Mañana, Chacabuco.",
+		"O'Higgins: Chile está al otro lado de estas montañas, General.",
+		"O'Higgins: Y nosotros estamos aquí para liberarla.",
+	],
+ 
 }
 
 func get_dialogo(id: String) -> Array:

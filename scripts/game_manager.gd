@@ -45,6 +45,23 @@ var eventos = {
 "fusil_entregado":         false,
 "cadena_completada":       false,
 "mula_montada":            false,
+	"acto4_iniciado":              false,
+	"acto4_intro_vista":           false,
+	"deposito_saqueado":           false,
+	"unguento_encontrado":         false,
+	"comida_extra_recogida":       false,
+	"soldado_herido_resuelto":     false,
+	"soldado_herido_curado":       false,
+	"soldado_herido_mula":         false,
+	"soldado_herido_abandonado":   false,
+	"mula_acto4_resuelta":         false,
+	"mula_acto4_recuperada":       false,
+	"mula_acto4_ocupada":          false,
+	"oficial_resuelto":            false,
+	"oficial_ayudado":             false,
+	"oficial_arrestado":           false,
+	"atajo_desbloqueado":          false,
+	"campamento_acto4_usado":      false,
 }
 
 # Recursos para la travesía (Acto 2)
@@ -138,3 +155,23 @@ func resetear_acto() -> void:
 		eventos["destacamento_derrotado"] = false
 		patrullas_derrotadas = 2
 		mapa_tactico_completado = false
+		
+	elif acto_actual == 4:
+		eventos["acto4_iniciado"]            = false
+		eventos["acto4_intro_vista"]         = false
+		eventos["deposito_saqueado"]         = false
+		eventos["soldado_herido_resuelto"]   = false
+		eventos["soldado_herido_curado"]     = false
+		eventos["soldado_herido_mula"]       = false
+		eventos["soldado_herido_abandonado"] = false
+		eventos["mula_acto4_resuelta"]       = false
+		eventos["mula_acto4_recuperada"]     = false
+		eventos["mula_acto4_ocupada"]        = false
+		eventos["oficial_resuelto"]          = false
+		eventos["oficial_ayudado"]           = false
+		eventos["oficial_arrestado"]         = false
+		eventos["atajo_desbloqueado"]        = false
+		eventos["campamento_acto4_usado"]    = false
+		recursos["comida"]   = 6
+		recursos["municion"] = 4
+		recursos["soldados"] = 5

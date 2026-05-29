@@ -4,6 +4,7 @@ const SPEED = 80
 
 var dialogo_ui: Node = null
 var montado: bool = false  
+var tormenta_activa: bool = false
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -29,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_up"):
 		direction.y = -1
 
-	var velocidad = SPEED * 3 if montado else SPEED
+	var velocidad_base = SPEED * 0.65 if tormenta_activa else SPEED
+	var velocidad = velocidad_base * 3 if montado else velocidad_base
 	velocity = direction * velocidad
 	move_and_slide()

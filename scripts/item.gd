@@ -44,4 +44,13 @@ func recoger() -> void:
 			GameManager.inventario["fusil"] = true
 			GameManager.eventos["fusil_encontrado"] = true
 			print("Fusil recogido!")
+		"comida_deposito":
+			GameManager.recursos["comida"] += cantidad
+			GameManager.eventos["deposito_saqueado"] = true
+			print("Comida del depósito recogida. Total: ", GameManager.recursos["comida"])
+ 
+		"comida_extra":
+			GameManager.recursos["comida"] += cantidad
+			GameManager.eventos["comida_extra_recogida"] = true
+			print("Comida extra recogida. Total: ", GameManager.recursos["comida"])
 	visible = false
