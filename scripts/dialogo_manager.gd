@@ -339,6 +339,10 @@ var dialogos = {
 		"O'Higgins: Debemos llegar al refugio antes de que el frío se lleve a nuestros hombres.",
 		"General San Martín: Avancemos. Y que Dios nos acompañe.",
 	],
+	"ohiggins_acto4": [
+	"O'Higgins: La ventisca no cede, General.",
+	"O'Higgins: Debemos llegar al refugio antes de que anochezca.",
+],
  
 # ── CLIMA — mensajes periódicos ───────────────────────────────
  
@@ -381,6 +385,16 @@ var dialogos = {
 	"deposito_encontrado": [
 		"Encontraste un depósito abandonado.",
 		"Hay raciones adentro. El ejército las necesita.",
+	],
+	
+	"aviso_refugio": [
+		"San Martín, tenemos información de un refugio realista más al norte."
+	],
+	
+	"aviso_ventisca": [
+		"Hola San Martín. Esto cada vez se pone peor.",
+		"Si atravesamos esto nos costará hombres y raciones de comida.",
+		"Podemos rodear la zona, pero nos llevará tiempo."
 	],
  
 # ── CONFLICTO 2 — EL SOLDADO HERIDO ──────────────────────────

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8emn52nfhlef" path="res://scenes/ui/dialogo_ui.tscn" id="5_p40xu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p40xu"]
+size = Vector2(913, 223)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkrf6"]
 
@@ -21,80 +22,90 @@ position = Vector2(2, -2)
 [node name="NPCs" type="Node" parent="Objetos" unique_id=403360003]
 
 [node name="NPC" parent="Objetos/NPCs" unique_id=823760919 instance=ExtResource("1_nggk6")]
-position = Vector2(-43, 68)
-id_dialogo = "acto4_intro"
+position = Vector2(71, 1100)
+id_dialogo = "aviso_refugio"
 repetible = true
 
 [node name="NPC2" parent="Objetos/NPCs" unique_id=1412062189 instance=ExtResource("1_nggk6")]
-position = Vector2(228, 35)
-id_dialogo = "acto4_intro"
+position = Vector2(344, 1151)
+id_dialogo = "ohiggins_acto4"
 repetible = true
 
 [node name="NPC3" parent="Objetos/NPCs" unique_id=1771987977 instance=ExtResource("1_nggk6")]
-position = Vector2(16, 68)
+position = Vector2(30, -203)
 nombre = "Soldado herido"
-id_dialogo = "soldado_herido_dialogo"
 repetible = true
 es_soldado_herido_acto4 = true
 
 [node name="NPC4" parent="Objetos/NPCs" unique_id=309536442 instance=ExtResource("1_nggk6")]
-position = Vector2(189, 138)
+position = Vector2(33, 296)
 nombre = "Rendido"
 id_dialogo = "oficial_rendido_dialogo"
 repetible = true
 es_oficial_rendido_acto4 = true
 
 [node name="NPC5" parent="Objetos/NPCs" unique_id=613517503 instance=ExtResource("1_nggk6")]
-position = Vector2(-121, -4)
+position = Vector2(374, 539)
 repetible = true
 es_soldado_mula_acto4 = true
 
-[node name="NPC6" parent="Objetos/NPCs" unique_id=1074581975 instance=ExtResource("1_nggk6")]
-position = Vector2(-1, 136)
+[node name="Campamento" parent="Objetos/NPCs" unique_id=1074581975 instance=ExtResource("1_nggk6")]
+position = Vector2(352, 200)
 repetible = true
 es_campamento_acto4 = true
 
+[node name="NPC6" parent="Objetos/NPCs" unique_id=1222041091 instance=ExtResource("1_nggk6")]
+position = Vector2(2, -2)
+id_dialogo = "aviso_ventisca"
+repetible = true
+
 [node name="Items" type="Node" parent="Objetos" unique_id=1137602712]
 
-[node name="Comida depósito" parent="Objetos/Items" unique_id=1018192138 instance=ExtResource("2_cquda")]
+[node name="item" parent="Objetos/Items" unique_id=1018192138 instance=ExtResource("2_cquda")]
 position = Vector2(162, -51)
 tipo = "comida_deposito"
 cantidad = 3
 
-[node name="Unguento" parent="Objetos/Items" unique_id=1378569005 instance=ExtResource("2_cquda")]
+[node name="item2" parent="Objetos/Items" unique_id=1378569005 instance=ExtResource("2_cquda")]
 position = Vector2(19, -60)
 tipo = "ungüento"
 
-[node name="Comida extra sur" parent="Objetos/Items" unique_id=341661880 instance=ExtResource("2_cquda")]
+[node name="item3" parent="Objetos/Items" unique_id=341661880 instance=ExtResource("2_cquda")]
 position = Vector2(88, 35)
 tipo = "comida_extra"
 cantidad = 2
 
 [node name="ZonaVentisca" type="Area2D" parent="." unique_id=1785099618]
-position = Vector2(-87, 285)
+position = Vector2(107, -139)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaVentisca" unique_id=110224602]
-position = Vector2(20, 20)
+position = Vector2(93.5, 201.5)
 shape = SubResource("RectangleShape2D_p40xu")
+debug_color = Color(0.9338184, 0, 0.7313913, 0)
+
+[node name="ColorRect" type="ColorRect" parent="ZonaVentisca" unique_id=796759018]
+offset_left = -365.0
+offset_top = 90.0
+offset_right = 553.0
+offset_bottom = 311.0
+color = Color(0.7, 0.9, 1, 0.3)
 
 [node name="SalidaMapa" type="Area2D" parent="." unique_id=154304412]
-position = Vector2(-94, 53)
+position = Vector2(390, -342)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SalidaMapa" unique_id=149038585]
+position = Vector2(21, 5)
 shape = SubResource("RectangleShape2D_rkrf6")
+
+[node name="ColorRect" type="ColorRect" parent="SalidaMapa" unique_id=1976492926]
+offset_right = 40.0
+offset_bottom = 20.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1701240934]
 
 [node name="PanelRecursos" type="PanelContainer" parent="UI" unique_id=816323431]
-anchors_preset = -1
-anchor_left = 0.33900002
-anchor_top = 0.5
-anchor_right = 0.33900002
-anchor_bottom = 0.5
-offset_left = -12.720001
-offset_top = -16.0
-offset_right = 27.279999
-offset_bottom = 88.0
+offset_right = 90.0
+offset_bottom = 104.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelRecursos" unique_id=1357142261]
 layout_mode = 2
@@ -112,10 +123,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Player" parent="." unique_id=1631804775 instance=ExtResource("4_pus3p")]
-position = Vector2(68, 177)
+position = Vector2(238, 1327)
 
 [node name="DialogoUI" parent="." unique_id=1689896403 instance=ExtResource("5_p40xu")]
 
-[connection signal="body_entered" from="ZonaVentisca" to="." method="_on_zona_ventisca_body_entered"]
-[connection signal="body_exited" from="ZonaVentisca" to="." method="_on_zona_ventisca_body_exited"]
+[connection signal="body_entered" from="ZonaVentisca" to="." method="_on_zona_ventisca_entered"]
+[connection signal="body_exited" from="ZonaVentisca" to="." method="_on_zona_ventisca_exited"]
 [connection signal="body_entered" from="SalidaMapa" to="." method="_on_salida_norte"]

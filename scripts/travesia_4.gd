@@ -15,7 +15,7 @@ extends Node2D
 @onready var soldado_herido   = $Objetos/NPCs/NPC3       # Zona alta
 @onready var oficial_rendido  = $Objetos/NPCs/NPC4       # Zona media
 @onready var soldado_mula     = $Objetos/NPCs/NPC5       # Zona lateral (mula perdida)
-@onready var campamento_npc   = $Objetos/NPCs/NPC6       # Campamento improvisado (pausa clima)
+@onready var campamento_npc   = $Objetos/NPCs/Campamento       # Campamento improvisado (pausa clima)
  
 # Ítems
 @onready var item_comida_deposito = $Objetos/Items/item   # Depósito zona alta
@@ -24,10 +24,10 @@ extends Node2D
  
 # Panel de recursos — siempre visible
 @onready var panel_recursos = $UI/PanelRecursos
-@onready var label_comida   = $UI/PanelRecursos/LabelComida
-@onready var label_municion = $UI/PanelRecursos/LabelMunicion
-@onready var label_soldados = $UI/PanelRecursos/LabelSoldados
-@onready var label_clima    = $UI/PanelRecursos/LabelClima
+@onready var label_comida   = $UI/PanelRecursos/VBoxContainer/LabelComida
+@onready var label_municion = $UI/PanelRecursos/VBoxContainer/LabelMunicion
+@onready var label_soldados = $UI/PanelRecursos/VBoxContainer/LabelSoldados
+@onready var label_clima    = $UI/PanelRecursos/VBoxContainer/LabelClima
  
 # ─────────────────────────────────────────────
 #  ESTADO LOCAL
@@ -85,9 +85,8 @@ func _ready() -> void:
 	# Iniciar timer del clima
 	_iniciar_timer_clima()
  
-	# Conectar salida
-	if salida_norte:
-		salida_norte.connect("body_entered", _on_salida_norte)
+
+
  
 	# Diálogo de apertura (solo la primera vez)
 	if not GameManager.eventos.get("acto4_intro_vista", false):
@@ -188,12 +187,18 @@ func _actualizar_ui_recursos() -> void:
 func _on_zona_ventisca_entered(body: Node) -> void:
 	if body == player:
 		# Duplicar velocidad de consumo en zona de tormenta fuerte
+		print("=== ENTRÓ A ZONA VENTISCA ===")
+		print("intervalo clima antes: ", timer_clima.wait_time)
 		timer_clima.wait_time = INTERVALO_CLIMA / 2.0
 		_mostrar_dialogo_sin_bloqueo("zona_ventisca_fuerte")
+		
+		
  
  
 func _on_zona_ventisca_exited(body: Node) -> void:
 	if body == player:
+		print("=== SALIÓ DE ZONA VENTISCA ===")
+		print("intervalo clima restaurado")
 		timer_clima.wait_time = INTERVALO_CLIMA
 		_mostrar_dialogo_sin_bloqueo("zona_ventisca_salida")
  
@@ -215,8 +220,8 @@ func mostrar_opciones_soldado_herido() -> void:
 	if GameManager.eventos.get("soldado_herido_resuelto", false):
 		return
 	var opciones = ["Curar con ungüento", "Llevarlo en la mula", "Dejarlo"]
-	var panel = _crear_panel_opciones("¿Qué hacés con el soldado herido?", opciones, "_on_soldado_herido_elegido")
-	add_child(panel)
+	_crear_panel_opciones("¿Qué hacés con el soldado herido?", opciones, "_on_soldado_herido_elegido")
+	
  
  
 func _on_soldado_herido_elegido(opcion: int) -> void:
@@ -256,8 +261,8 @@ func mostrar_opciones_mula_acto4() -> void:
 		_mostrar_dialogo("mula_acto4_ocupada")
 		return
 	var opciones = ["Ir a buscarla (tarda tiempo)", "Seguir sin ella"]
-	var panel = _crear_panel_opciones("La mula se escapó. ¿Qué hacés?", opciones, "_on_mula_acto4_elegida")
-	add_child(panel)
+	_crear_panel_opciones("La mula se escapó. ¿Qué hacés?", opciones, "_on_mula_acto4_elegida")
+	
  
  
 func _on_mula_acto4_elegida(opcion: int) -> void:
@@ -283,8 +288,8 @@ func mostrar_opciones_oficial_rendido() -> void:
 	if GameManager.eventos.get("oficial_resuelto", false):
 		return
 	var opciones = ["Ayudarlo", "Arrestarlo", "Ignorarlo"]
-	var panel = _crear_panel_opciones("Encontrás a un oficial realista congelado.", opciones, "_on_oficial_rendido_elegido")
-	add_child(panel)
+	_crear_panel_opciones("Encontrás a un oficial realista congelado.", opciones, "_on_oficial_rendido_elegido")
+	
  
  
 func _on_oficial_rendido_elegido(opcion: int) -> void:
@@ -375,32 +380,32 @@ func _mostrar_dialogo_sin_bloqueo(id: String) -> void:
 	dialogo_ui.iniciar_dialogo(id)
  
  
-func _crear_panel_opciones(titulo: String, opciones: Array, callback: String) -> Control:
+func _crear_panel_opciones(titulo: String, opciones: Array, callback: String) -> void:
 	var panel = PanelContainer.new()
 	panel.z_index = 10
-	panel.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	panel.position = Vector2(80, 300)
- 
+
 	var vbox = VBoxContainer.new()
 	panel.add_child(vbox)
- 
+
 	var label = Label.new()
 	label.text = titulo
 	vbox.add_child(label)
- 
+
 	for i in opciones.size():
 		var btn = Button.new()
 		btn.text = opciones[i]
 		btn.connect("pressed", Callable(self, callback).bind(i))
 		btn.connect("pressed", panel.queue_free)
 		vbox.add_child(btn)
- 
-	return panel
+
+	$UI.add_child(panel)
+	panel.position = Vector2(140, 180)
+	
 
 
-func _on_zona_ventisca_body_entered(body: Node2D) -> void:
+func _on_zona_ventisca_body_entered(_body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_zona_ventisca_body_exited(body: Node2D) -> void:
+func _on_zona_ventisca_body_exited(_body: Node2D) -> void:
 	pass # Replace with function body.

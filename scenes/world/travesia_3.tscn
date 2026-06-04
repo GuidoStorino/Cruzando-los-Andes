@@ -132,4 +132,8 @@ position = Vector2(-1, 8)
 
 [node name="SalidaMapa" parent="." unique_id=1131279445 instance=ExtResource("8_ctsbm")]
 position = Vector2(68, 9)
+escena_destino = "res://scenes/world/travesia_4.tscn"
+
+[node name="SalidaMapa2" parent="." unique_id=205178609 instance=ExtResource("8_ctsbm")]
+position = Vector2(78, 76)
 escena_destino = "res://scenes/world/travesia2.tscn"

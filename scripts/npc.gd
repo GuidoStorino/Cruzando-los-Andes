@@ -42,10 +42,17 @@ func _process(_delta: float) -> void:
 			ya_interactuado = true
 			_iniciar_combate_espia()
 			return
+			
+		var es_npc_acto4 = es_soldado_herido_acto4 or es_soldado_mula_acto4 \
+	or es_oficial_rendido_acto4 or es_campamento_acto4	
 
 	if Input.is_action_just_pressed("accion") and not ya_interactuado:
 		if esta_cerca_del_jugador():
 			interactuar()
+			
+
+
+	
 
 func _get_distancia() -> float:
 	var jugador = get_tree().get_root().find_child("Player", true, false)
@@ -69,6 +76,9 @@ func _interaccion_mula() -> void:
 	dialogo_ui.dialogo_terminado.connect(_on_mula_aceptada, CONNECT_ONE_SHOT)
 
 func _interaccion_soldado_herido_acto4() -> void:
+	print("=== SOLDADO HERIDO ===")
+	print("soldado_herido_resuelto: ", GameManager.eventos.get("soldado_herido_resuelto", false))
+	print("dialogo_ui: ", dialogo_ui)
 	if GameManager.eventos.get("soldado_herido_resuelto", false):
 		return
 	dialogo_ui.iniciar_dialogo("soldado_herido_dialogo")
@@ -120,9 +130,6 @@ func _on_mula_aceptada() -> void:
 	visible = false
 
 func interactuar() -> void:
-	if es_mula_acto3:
-		_interaccion_mula()
-	
 	if dialogo_ui == null:
 		dialogo_ui = get_tree().current_scene.find_child("DialogoUI", true, false)
 	if dialogo_ui == null:
@@ -130,7 +137,6 @@ func interactuar() -> void:
 	if dialogo_ui.dialogo_terminado.is_connected(_on_dialogo_terminado):
 		dialogo_ui.dialogo_terminado.disconnect(_on_dialogo_terminado)
 
-	# Prioridad de roles especiales
 	if es_curandero:
 		_interaccion_curandero()
 		return
@@ -152,10 +158,9 @@ func interactuar() -> void:
 	if es_soldado_cadena > 0:
 		_interaccion_cadena()
 		return
-
-	if id_dialogo == "":
+	if es_mula_acto3:
+		_interaccion_mula()
 		return
-		
 	if es_soldado_herido_acto4:
 		_interaccion_soldado_herido_acto4()
 		return
@@ -167,11 +172,13 @@ func interactuar() -> void:
 		return
 	if es_campamento_acto4:
 		_interaccion_campamento_acto4()
-		return	
+		return
+
+	if id_dialogo == "":
+		return
 
 	dialogo_ui.iniciar_dialogo(id_dialogo)
 	dialogo_ui.dialogo_terminado.connect(_on_dialogo_terminado, CONNECT_ONE_SHOT)
-
 # ────────────────────────────────────────────────────────────
 #  ACTO 1 — Curandero y Cabildo (sin cambios)
 # ────────────────────────────────────────────────────────────
@@ -406,3 +413,11 @@ func _iniciar_combate_espia() -> void:
 	print("posicion guardada antes de combate: ", GameManager.posicion_guardada)
 	ya_interactuado = true
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/combat/combate.tscn")
+
+
+func _on_zona_ventisca_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_zona_ventisca_exited(body: Node2D) -> void:
+	pass # Replace with function body.

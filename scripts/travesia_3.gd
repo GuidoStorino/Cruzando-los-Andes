@@ -425,8 +425,7 @@ func _recalcular_conflictos() -> int:
 
 func _mostrar_dialogo(id: String) -> void:
 	dialogo_activo = true
-	var lineas = DialogoManager.get_dialogo(id)
-	dialogo_ui.iniciar_dialogo(lineas)
+	dialogo_ui.iniciar_dialogo(id)
 	await DialogoManager.dialogo_terminado
 	dialogo_activo = false
 
