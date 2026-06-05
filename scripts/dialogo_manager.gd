@@ -232,8 +232,8 @@ var dialogos = {
 
 	"soldado_a_necesita_vendas": [
 		"Soldado Acosta: General... estoy herido. No tengo vendas.",
-		"Soldado Acosta: El soldado Carrizo las tiene, pero dice que espera que alguien ayude primero al soldado Benítez.",
-		"Soldado Acosta: No entiendo bien qué pasó entre ellos.",
+		"El soldado Carrizo las tiene, pero había marchado para ayudar al soldado Benítez.",
+		"No entiendo bien qué pasó.",
 	],
 
 	"soldado_a_agradecido": [
@@ -247,8 +247,8 @@ var dialogos = {
 
 	"soldado_b_perdio_fusil": [
 		"Soldado Benítez: General... perdí mi fusil cruzando el paso.",
-		"Soldado Benítez: Sé que es una vergüenza. Pero si alguien lo encontrara...",
-		"Soldado Benítez: Lo vi caer cerca de los riscos del noreste.",
+		"Sé que es una vergüenza. Pero si alguien lo encontrara...",
+		"Lo vi caer cerca de los riscos del noreste.",
 	],
 
 	"soldado_b_recibe_fusil": [
@@ -266,8 +266,9 @@ var dialogos = {
 	],
 
 	"soldado_c_espera": [
-		"Soldado Carrizo: General, no doy las vendas hasta que alguien ayude al soldado Benítez.",
-		"Soldado Carrizo: No es capricho. Es que nadie le prestó atención.",
+		"Soldado Carrizo: ¡Hola San Martín! Cerca de los riscos hay patrullas realistas demasiado fuertes para nosotros.",
+		"San Martín: Supongo que si se quiere un trabajo bien hecho, tiene que hacerlo uno mismo. Vaya a darle vendas al soldado Acosta.",
+		"Soldado Carrizo: Sí, mi General."
 	],
 
 	"soldado_c_da_vendas": [
