@@ -272,8 +272,7 @@ var dialogos = {
 	],
 
 	"soldado_c_da_vendas": [
-		"Soldado Carrizo: Benítez ya tiene su fusil... Acosta tiene razón.",
-		"Soldado Carrizo: Tome las vendas, General. Lléveselas a Acosta.",
+		"Soldado Carrizo: Benítez ya tiene su fusil. Ya le di las vendas a Acosta, General",
 	],
 
 	"soldado_c_contento": [
